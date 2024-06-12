@@ -16,3 +16,7 @@ vendor
 *.lock
 
 data
+
+*.pdf
+notes
+*/.*

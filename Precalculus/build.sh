@@ -1,7 +1,7 @@
-for i in *.tex; 
+for i in *.tex;
 do pdflatex $i;
 done
 
-mkdir output/Precalculus
+mkdir notes/Precalculus
 
-mv *.pdf output/Precalculus
+mv *.pdf notes/Precalculus

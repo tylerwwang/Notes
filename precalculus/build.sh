@@ -3,6 +3,6 @@ do pdflatex $i;
 	pdflatex $i;
 done
 
-mkdir notes/Precalculus
+mkdir out/Precalculus
 
-mv *.pdf notes/Precalculus
+mv *.pdf out/Precalculus

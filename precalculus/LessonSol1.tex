@@ -1,0 +1,125 @@
+\documentclass[11pt]{article}
+
+\title {Lesson 1 Exercise Solutions}
+\author {Tyler Wang}
+
+\usepackage{amssymb}
+\usepackage{amsmath, esint}
+\usepackage{amsthm}
+\usepackage{array}
+\usepackage{mathtools}
+\usepackage{pdfpages}
+\usepackage{fancyhdr}
+\usepackage{lastpage}
+\usepackage[figurename=Figure]{caption}
+\usepackage{empheq}
+\usepackage{mdframed}
+\usepackage[a4paper, left=1in,right=1in,top=1in,bottom=0.7in,footskip=0.6in,includeheadfoot]{geometry}
+\usepackage{tikz}
+\usepackage{pgfplots}
+
+\usetikzlibrary{calc,backgrounds,angles,quotes}
+
+\tikzset{
+    partial ellipse/.style args={#1:#2:#3}{
+        insert path={+ (#1:#3) arc (#1:#2:#3)}
+    }
+}
+
+\setlength{\parskip}{10pt}
+\setlength{\parindent}{0pt}
+
+\makeatletter
+\edef\mytitle{\@title}
+\edef\mydate{\@date}
+\edef\myauthor{\@author}
+\makeatother
+
+\fancyhf{}
+\fancyhead[R]{\myauthor}
+\fancyhead[L]{\mytitle}
+\fancyfoot[c]{Page \thepage \hspace{1pt} of \pageref{LastPage}}
+\pagestyle{fancy}
+
+\newmdtheoremenv{lemma}{Lemma}
+\newmdtheoremenv{prop}{Proposition}
+\numberwithin{lemma}{section}
+\numberwithin{equation}{section}
+\numberwithin{prop}{section}
+
+\def\real{\mathbb{R}}
+\def\complex{\mathbb{C}}
+\def\rat{\mathbb{Q}}
+\def\nat{\mathbb{N}}
+\def\integ{\mathbb{Z}}
+\def\mod#1{\mathbb{Z}_{#1}}
+\def\cpx{\mathbb{C}}
+
+\def\paren#1{\left(#1\right)}
+\def\sbrak#1{\left[#1\right]}
+\def\cbrak#1{\left\{#1\right\}}
+
+\def\ceil#1{\left\lceil #1 \right\rceil}
+\def\floor#1{\left\lfloor #1 \right\rfloor}
+\def\abs#1{\left\lvert #1 \right\rvert}
+\def\abrak#1{\left\langle #1 \right\rangle}
+\def\bra#1{\left\langle #1 \right\rvert}
+\def\ket#1{\left\lvert #1 \right\rangle}
+\def\braket#1#2{\left\langle #1 \left.\right\lvert #2 \right\rangle}
+
+\def\jand{\quad\text{and}\quad}
+\def\jor{\quad\text{or}\quad}
+\def\for{\quad\text{for }\,}
+
+\def\ieval#1#2{\Bigg|^{#2}_{#1}}
+\def\deval#1{\bigg|_{#1}}
+
+\def\diff#1#2{\frac{d#1}{d#2}}
+\def\pdiff#1#2{\frac{\partial#1}{\partial#2}}
+
+\def\sec#1{\section*{#1}\addtocounter{section}{1}\setcounter{subsection}{0}}
+
+\setlength\extrarowheight{3pt}
+
+\begin{document}
+\sec{Question 1}
+\begin{enumerate}
+	\item $A\cup B=\{1,\beta,20,\text{two}\}$
+	\item $A\cup B=\{\beta,20\}$
+	\item $C\setminus A=\{\text{one},\alpha\}$
+	\item $\{1,\beta,20\}$
+\end{enumerate}
+
+\sec{Question 2}
+\begin{enumerate}
+	\item $\{x:-10<x<3\}$
+	\item $\{2n:n\in\int\}$
+	\item $\{n^2:n\in\nat\}$
+\end{enumerate}
+
+\sec{Question 3}
+Checking the base case $n=1$ is trivial.
+Then for the inductive step, assume for $m\in\nat$
+$$\sum^m_{k=1}q^k=\frac{q^{m+1}-q}{q-1}$$
+Then for $m+1$,
+$$\sum^{m+1}_{k=1}q^k=\sum^m_{k=1}q^k+q^{m+1}
+=\frac{q^{m+1}-q}{q-1}+q^{m+1}$$
+$$=\frac{q^{m+1}-q}{q-1}+\frac{q^{m+2}-q^{m+1}}{q-1}=\frac{q^{m+2}-q}{q-1}$$
+therefore, by induction, we complete our proof.
+\sec{Question 4}
+Checking the base case $n=1$ is trivial.
+Then for the inductive step, assume for $m\in\nat$
+$$5^m+5<5^{m+1}$$
+This implies
+$$5^{m+2}>5\cdot 5^{m+1}>5(5^m+5)>5^{m+1}+25>5^{m+1}+5$$
+hence by induction, we complete our proof.
+
+\sec{Question 5}
+Let $T=\{2n+1:n\in\nat\}$, since $T\subseteq\nat$, $T$ is also well ordered. Then the proof follows by contradiction. 
+Assume there exists a set $S=\{P(n):n\in T\}$ such that there exists $P(m)$ that is false for $m\in T$. 
+Therefore, there exists $F=\{P(n):P(n)=\text{False}\}\neq \varnothing$. Since $S$ is well-ordered (since $T$ can be used to index $S$) and $F\subseteq S$, $F$ must have least element $P(l)$. Since $l\neq1$, by base case, there exists $l-2\in T$. Since $P(l-2)\notin F$, $P(l-2)$ is true, which implies $P(l)$ is true by our inductive step assumption. Therefore, by contradiction, every $P(n)\in S$ must be true.
+\end{document}
+
+
+
+

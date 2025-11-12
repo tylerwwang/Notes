@@ -1,166 +1,450 @@
-\documentclass[11pt]{article}
-
-\usepackage{amssymb}
-\usepackage{amsmath, esint}
-\usepackage{amsthm}
-\usepackage{array}
-\usepackage{longtable}
-\usepackage{mathtools}
-\usepackage{pdfpages}
-\usepackage{fancyhdr}
-\usepackage[figurename=Figure]{caption}
-\usepackage{empheq}
-\usepackage{mdframed}
-\usepackage[a4paper, left=1in,right=1in,top=1in,bottom=0.7in,footskip=0.6in,includeheadfoot]{geometry}
-\usepackage{tikz}
-\usepackage{pgfplots}
-\usepackage{hyperref}
-\usepackage{wrapfig}
-\usepackage{enumitem}
-\usepackage{lastpage}
-\usepackage{zref-totpages}
+\documentclass[12pt]{article}
 
 %title
-\edef\mytitle{Precalculus}
+\edef\mytitle{Essence of Precalculus}
 \edef\mysubtitle{Lesson 4: Transcendental Functions}
 \edef\mydate{June 25, 2024}
 \edef\myauthor{Tyler Wang}
 
-\usetikzlibrary{calc, backgrounds,angles, quotes}
+	%Configuration
+	\usepackage{amssymb}
+	\usepackage{amsmath, esint}
+	\usepackage{amsthm}
+	\usepackage{array}
+	\usepackage{longtable}
+	\usepackage{varwidth}
+	\usepackage{mathtools}
+	\usepackage{pdfpages}
+	\usepackage{fancyhdr}
+	\usepackage[figurename=Figure]{caption}
+	\usepackage{empheq}
+	\usepackage{mdframed}
+	\usepackage[a4paper, left=1in,right=1in,top=1in,bottom=0.7in,footskip=0.6in,includeheadfoot]{geometry}
+	\usepackage{tikz}
+	\usepackage{pgfplots}
+	\usepackage{hyperref}
+	\usepackage{wrapfig}
+	\usepackage{enumitem}
+	\usepackage{setspace}
+	\usepackage{multirow}
+	\usepackage{enumitem}
+	\usepackage{afterpage}
+	\usepackage{lastpage}
+	\usepackage{zref-totpages}
 
-\tikzset{
-    partial ellipse/.style args={#1:#2:#3}{
-        insert path={+ (#1:#3) arc (#1:#2:#3)}
-    }
-}
+	%Macros
+	\newcommand{\real}{\mathbb{R}}
+	\newcommand{\complex}{\mathbb{C}}
+	\newcommand{\rat}{\mathbb{Q}}
+	\newcommand{\nat}{\mathbb{N}}
+	\newcommand{\integ}{\mathbb{Z}}
+	\newcommand{\cpx}{\mathbb{C}}
 
-\setlength{\parskip}{10pt}
-\setlength{\parindent}{0pt}
+	\newcommand{\paren}[1]{\left(#1\right)}
+	\newcommand{\sbrak}[1]{\left[#1\right]}
+	\newcommand{\cbrak}[1]{\left\{#1\right\}}
 
-\fancyhf{}
-\fancyfoot[l]{\copyright \,\,\myauthor}
-\fancyhead[L]{\mysubtitle}
-\fancyhead[r]{\mytitle}
-\fancyfoot[c]{Page \thepage \hspace{1pt} of \ztotpages}
-\pagestyle{fancy}
+	\newcommand{\ceil}[1]{\left\lceil #1 \right\rceil}
+	\newcommand{\floor}[1]{\left\lfloor #1 \right\rfloor}
+	\newcommand{\abs}[1]{\left\lvert #1 \right\rvert}
+	\newcommand{\abrak}[1]{\left\langle #1 \right\rangle}
 
-\fancypagestyle{plain}{
-\fancyhf{}
-\fancyfoot[l]{\copyright \,\,\myauthor}
-\fancyfoot[c]{Page \thepage \hspace{1pt} of \ztotpages}
-\renewcommand{\headrulewidth}{0pt}}
+	\newcommand{\bra}[1]{\left\langle #1 \right\rvert}
+	\newcommand{\ket}[1]{\left\lvert #1 \right\rangle}
+	\newcommand{\braket}[2]{\left\langle #1 \left.\right\lvert #2 \right\rangle}
+	\newcommand{\ketbra}[2]{\left\lvert #1 \right\rangle\!\!\left\langle #2 \right\lvert}
 
-\newmdtheoremenv{lemma}{Lemma}
-\newmdtheoremenv{prop}{Proposition}
-\newmdtheoremenv{define}{Definition}
-\newmdtheoremenv{theorem}{Theorem}
-\newmdtheoremenv{cor}{Corollary}
+	\newcommand{\tens}[1]{\stackrel{\leftrightarrow}{#1}}
 
-\numberwithin{lemma}{section}
-\numberwithin{equation}{section}
-\numberwithin{define}{section}
-\numberwithin{prop}{section}
-\numberwithin{figure}{section}
-\numberwithin{theorem}{section}
-\numberwithin{cor}{section}
+	\newcommand{\jand}{\quad\text{and}\quad}
+	\newcommand{\jor}{\quad\text{or}\quad}
+	\newcommand{\for}{\quad\text{for }\,}
+	\newcommand{\comma}{,\quad}
 
-\newcounter{ex}[section]
-\newenvironment{ex}[0]{
+	\newcommand{\ieval}[2]{\Bigg|^{#2}_{#1}}
+	\newcommand{\deval}[1]{\bigg|_{#1}}
 
-	\refstepcounter{ex}
-    \subsection*{Example \theex .}
-    }
-    {
-    \subsection*{}
-    }
-\numberwithin{ex}{section}
+	\newcommand{\diff}[2]{\frac{d#1}{d#2}}
+	\newcommand{\pdiff}[2]{\frac{\partial#1}{\partial#2}}
+	%End Macros
 
-\def\real{\mathbb{R}}
-\def\complex{\mathbb{C}}
-\def\rat{\mathbb{Q}}
-\def\nat{\mathbb{N}}
-\def\integ{\mathbb{Z}}
-\def\mod#1{\mathbb{Z}_{#1}}
-\def\cpx{\mathbb{C}}
+	\usetikzlibrary{calc, backgrounds,angles, quotes}
+	\tikzset{
+	    partial ellipse/.style args={#1:#2:#3}{
+	        insert path={+ (#1:#3) arc (#1:#2:#3)}
+	    }
+	}
 
-\def\paren#1{\left(#1\right)}
-\def\sbrak#1{\left[#1\right]}
-\def\cbrak#1{\left\{#1\right\}}
 
-\def\ceil#1{\left\lceil #1 \right\rceil}
-\def\floor#1{\left\lfloor #1 \right\rfloor}
-\def\abs#1{\left\lvert #1 \right\rvert}
-\def\abrak#1{\left\langle #1 \right\rangle}
-\def\bra#1{\left\langle #1 \right\rvert}
-\def\ket#1{\left\lvert #1 \right\rangle}
-\def\braket#1#2{\left\langle #1 \left.\right\lvert #2 \right\rangle}
+	\fancyhf{}
+	\fancyfoot[l]{\copyright \,\,\myauthor}
+	\fancyhead[L]{\mysubtitle}
+	\fancyhead[r]{\mytitle}
+	\fancyfoot[c]{Page \thepage \hspace{1pt} of \ztotpages}
+	\pagestyle{fancy}
 
-\def\jand{\quad\text{and}\quad}
-\def\jor{\quad\text{or}\quad}
-\def\for{\quad\text{for }\,}
+	\fancypagestyle{plain}{
+	\fancyhf{}
+	\fancyfoot[l]{\copyright \,\,\myauthor}
+	\fancyfoot[c]{Page \thepage \hspace{1pt} of \ztotpages}
+	\renewcommand{\headrulewidth}{0pt}}
+	\setlength{\headheight}{15pt}
 
-\def\ieval#1#2{\Bigg|^{#2}_{#1}}
-\def\deval#1{\bigg|_{#1}}
+	\newcommand{\newmarkedtheorem}[1]{%
+	  \newenvironment{#1}
+	    {\renewcommand{\qedsymbol}{\ensuremath{\clubsuit}}\pushQED{\qed}\csname inner@#1\endcsname}
+	    {\popQED\csname endinner@#1\endcsname}%
+	  \newtheorem{inner@#1}%
+	}
 
-\def\diff#1#2{\frac{d#1}{d#2}}
-\def\pdiff#1#2{\frac{\partial#1}{\partial#2}}
+	\renewcommand\qedsymbol{$\blacksquare$}
+	\theoremstyle{plain}
 
-\def\sec#1{\section*{#1}\addtocounter{section}{1}\setcounter{subsection}{0}}
+	\newtheorem{theorem}{Theorem}
+	\newtheorem{lemma}[theorem]{Lemma}
+	\newtheorem{prop}[theorem]{Proposition}
+	\newtheorem{define}[theorem]{Definition}
+	\newtheorem{thm}[theorem]{Theorem}
+	\newtheorem{cor}[theorem]{Corollary}
 
-\hypersetup{
-    colorlinks=true,
-    urlcolor=blue,
-    linkcolor=magenta,
-    pdfborderstyle={/S/U/W 1}
-}
+	\theoremstyle{definition}
 
-\setlength\extrarowheight{3pt}
+	\newmarkedtheorem{remark}[theorem]{Remark}
+	\newmarkedtheorem{ex}[theorem]{Example}
 
-\title{\mytitle \\ [2ex] \Large \mysubtitle}
-\date{\small Modified \mydate}
-\author {Tyler Wang\thanks{
-\href{mailto:wangtyler123@gmail.com}{wangtyler123@gmail.com}}}
+	\newtheorem{exercise}{Exercise}
+
+	\numberwithin{equation}{section}
+	\numberwithin{theorem}{section}
+	\numberwithin{figure}{section}
+	\numberwithin{exercise}{section}
+
+	\newcommand{\optionalsection}[1]{
+		\section{#1\textsuperscript{$\S$}}
+		\customfootnotetext{$\S$}{Optional section: may be skipped without loss of continuity.}
+	}
+
+	\newenvironment{block}
+	{
+	    \begin{center}
+	    \begin{em}\small
+	    \begin{tabular}{p{0.9\linewidth}}
+	}{
+	    \end{tabular}
+	    \end{em}
+	    \end{center}
+	}
+
+	\hypersetup{
+	    colorlinks=true,
+	    urlcolor=blue,
+	    linkcolor=magenta,
+	    pdfborderstyle={/S/U/W 1}
+	}
+
+	\setlength\extrarowheight{3pt}
+	\setlength{\parskip}{5pt}
+
+	\setlength{\tabcolsep}{5pt}
+	\onehalfspacing
+	%End Configuration
+
+	\title{\mytitle \\ [2ex] \Large \mysubtitle}
+	\date{\small Modified \mydate}
+	\author {\myauthor
+		\thanks{\href{https://tylerwang.org}{tylerwang.org}}}
+
 
 \begin{document}
 \maketitle
+\tableofcontents
 \section{Exponentials}
-\subsection{Exponentials for Reals}
-Before we dive into this topic, we must define the idea of taking an exponential, with the domain being the real numbers. Traditional exponentials have the disadvantage of only working with integer values or rational numbers.
-However, the problem is that the rational numbers are only a very small subset of the set of real numbers.\footnote{
-The set of rational numbers is so small that the entire set doesn't even take up "space" in the real numbers. It is what's called a \textit{\href{https://en.wikipedia.org/wiki/Null_set}{null set}.}}
-So for our purposes, we need something a little better.
-For our definition, we'd like to seek a nice connected function that outputs the same values as the discrete exponent and also satisfies all of the properties that the discrete case does.
-Unfortunately, this definition is quite a calculus heavily so I will leave that discussion for another class. For our class, we will only so we will only look over a few of its properties.
-\begin{theorem}
-Let $x,y\in\real$, and $a\in\real^{+}$ then the following hold:
-\begin{enumerate}
-	\item $a^xb^y=a^{a+b}$
-	\item $(a^x)^y=a^{xy}$
-	\item for $b\in\real$, $(ab)^x=a^xb^x$
-\end{enumerate}
-(\textbf{Note}: the exponential is only defined for $a$ that is positive)
-\end{theorem}
+\subsection{Exponents for $\real$}
+This section aims to extend the traditional concept of repeated multiplication to all real numbers.
+Immediately, one should notice an issue with this since it isn't really clear what it means to multiply a number by a non-integer number of times.
+Thus, to proceed, we need to find a natural way can extend a discrete exponent to a continuous \textit{exponential}.
 
-We can in fact verify these properties quite easily if we shrink the domain to just the rational numbers. I will leave this as an exercise for the reader.
+First, to be clear, when we write $a^n$ for some positive $n$, we are taking the product of $n$ copies of $a$.
+We can extend this idea by including negative numbers, where instead we are taking the product of $|n|$ copies of $\frac{1}{a}$.
+With this, one should find that the definition $a^0:=1$ is rather natural.
+Now, let's observe a few properties of the discrete exponent.
+
+\begin{prop} \label{prop:exponent-prop}
+	For any $a \in \real$, the following are true:
+	\begin{enumerate}
+		\item $a^m a^n = a^{m+n}$, for $m,n \in \nat$.
+		\item $(a^m)^n = a^{mn}$, for $m,n \in \nat$.
+	\end{enumerate}
+\end{prop}
+\begin{proof}
+	Exercise.
+\end{proof}
+
+When constructing the exponential, we wish to accomplish the following things:
+\begin{enumerate}
+	\item Make sure the result is continuous
+	\item Retain every property as outlined in proposition \eqref{prop:exponent-prop}.
+	\item Have the resulting function restricted to the discrete exponent.
+\end{enumerate}
+In particular, we also would like to make sure this function is unique given some base.
+One way to accomplish this is by the following definition.
+
+\begin{define} \label{def:exponential}
+	For any $a>0$, a continuous function $\phi:\real \to \real$ is an exponential with base $a$ if the following hold:
+	\begin{enumerate}
+		\item $\phi(1)=a$, \label{def:exp-prop-unit}
+		\item $\phi(x)\cdot [a](y)=[a](x+y)$, \label{def:exp-prop-add}
+	\end{enumerate}
+\end{define}
+
+
+From the definition \eqref{def:exponential}, it is not immediately obvious that such a function is unique for each $a$.
+In fact, the definition alone doesn't even guarantee this function exists.
+Our next goal is to show that for each $a$, an exponential with base $a$ exists and is in fact unique.
+To begin, let's examine a few basic properties of any function satisfying the definition \eqref{def:exponential}.
+
+\begin{prop} \label{prop:exp-basic-property}
+	Let $\phi$ be any exponential with arbitrary base $a$. The following holds:
+	\begin{enumerate}
+		\item $\phi(-x)=\frac{1}{\phi(x)}$. \label{prop:exp-prop-neg}
+		\item $\phi(0)=1$. \label{prop:exp-prop-unit-preserve}
+		\item $(\phi(x))^n=\phi(nx)$ for any $n\in \integ$. \label{prop:exp-prop-multi}
+		\item $\phi(x)\neq 0$ for any $x \in \real$. \label{prop:exp-prop-non-zero}
+	\end{enumerate}
+\end{prop}
+\begin{proof}
+	By property \eqref{def:exp-prop-add} of the exponential,
+	$$\phi(x)\cdot \phi(-x)= \phi(0)=(\phi(1))^0=1.$$
+	Thus we have $\phi(-x)=\frac{1}{\phi(x)}$ by algebric manipulation, thereby proving statement \eqref{prop:exp-prop-neg}.
+	
+	Statement \eqref{prop:exp-prop-unit-preserve} follows by rearranging statement \eqref{prop:exp-prop-neg} as follows: 
+	$$1=\phi(x)\phi(-x)=\phi(0).$$
+	
+	Statement \eqref{prop:exp-prop-multi} for positive integers follows immediately from property \eqref{def:exp-prop-add}.
+	Then statements \eqref{prop:exp-prop-neg} and \eqref{prop:exp-prop-unit-preserve} extend this to all integers.
+
+	
+	For statment \eqref{prop:exp-prop-non-zero}, suppose there exists $x \in \real$ such that $\phi(x)=0$.
+	Observe
+	$$a=\phi(1)=\phi(x)\phi(1-x)=0\cdot \phi(1-x)=0$$
+	which is a contradiction since $a \neq 0$.
+	Therefore, statement \eqref{prop:exp-prop-non-zero} follows by contradiction.
+\end{proof}
+
+In particular statement \eqref{prop:exp-prop-multi} used in combination with property \eqref{def:exp-prop-unit} gives
+$$\phi(n)=a^n.$$
+Therefore, every exponential with base $a$ restricts to $a^n$.
+If such a function satisfying definition \eqref{def:exponential} exists, then this proves that it is in fact an extension of $a^n$.
+
+Our next goal here is to show that every exponential with base $a$ must restrict to a unique function on $\rat$.
+The subsequent proofs make heavy use of properties of $n$-roots and $n$-powers, which we will state formally.
+
+\begin{prop} \label{prop:basic-root-prop}
+	For any $a>0$, the following hold:
+	\begin{enumerate}
+		\item $a^n$ is an strictly increasing function if $a>1$
+		\item $a^n$ is an strictly decreasing function if $a<1$.
+		\item $a^n>n$ for every $n$. In particular, $a^n$ is unbounded from above.
+		\item $(\sqrt[m] a)^n = \sqrt[m] {a^n}$, for $m >0 $ and any integer $n$.
+		\item $\sqrt[mn] a=\sqrt[m] {\sqrt[n] a}$, for $m,n >0$.
+	\end{enumerate}
+\end{prop}
+\begin{proof}
+	Exercise.
+\end{proof}
+
+\begin{prop} \label{prop:exp-Q-ext}
+	The following holds:
+	\begin{enumerate}
+		\item If $\phi$ is an exponential with base $a$, $\phi(\frac{1}{n})=\sqrt[n] a$. \label{prop:exp-prop-1-over-n}
+		\item Any exponential with base $a$ restricts to the function
+			$$[a]_\rat\paren{\frac{p}{q}} = (\sqrt[q] a)^p, \quad \text{for } q>0$$
+			on $\rat$. \label{prop:state-Q-ext}
+	\end{enumerate}
+\end{prop}
+\begin{proof}
+	To prove \eqref{prop:exp-prop-1-over-n}, observe that by statement \eqref{prop:exp-prop-multi} in proposition \eqref{prop:exp-basic-property} followed by \eqref{def:exp-prop-unit} of the exponential, we have
+	$$\paren{\phi\paren{\frac{1}{n}}}^n=\phi(1)= a.$$
+	Therefore, we get $\phi\paren{\frac{1}{n}}=\sqrt[n]a$, thus proving \eqref{prop:exp-prop-1-over-n}.
+
+	For \eqref{prop:state-Q-ext}, we can prove this is the unique restriction of any exponential with base $a$ $\phi$ by observing that for $q>0$,
+	$$\phi\paren{\frac{p}{q}}=\paren{\phi\paren{\frac{1}{q}}}^p=(\sqrt[q] a)^p$$
+	where the middle equality follows from \eqref{prop:exp-prop-multi} of the exponential, and the last equality follows from statement \eqref{prop:exp-prop-1-over-n} in the proposition.
+
+	Thus, it remains to prove $\phi$ is well-defined.
+	Suppose $\frac{p}{q}=\frac{p'}{q'}$, then we have $pq'=p'q$.
+	This gives us the equation
+	$$\sqrt[pq'] a = \sqrt[p'q] a$$
+	Taking to the $pp'$ power on both sides yields
+	$$(\sqrt[pq'] a)^{pp'} = (\sqrt[q'] a )^{p'} \jand (\sqrt[p'q] a)^{pp'} = (\sqrt[q] a )^{p}.$$
+	Therefore, $(\sqrt[q] a )^{p}=(\sqrt[q'] a )^{p'}$ which is exactly the desired result.\footnote{
+			A nontrivial fact that we glossed over here is that a (positive) $n$-root indeed always exists for any real number.
+			The proof of this fact is not obvious and requires a proper definition of the real numbers.
+			However, since this is commonly skipped over (in fact, I doubt many of our readers will even realize this is something that needs proving), I will too.}
+\end{proof}
+
+\begin{prop} \label{prop:exp-Q-prop}
+	$[a]_\rat$ as defined in proposition \eqref{prop:exp-Q-ext} satifies the following:
+	\begin{enumerate}
+		\item $[a]_\rat(r)[a]_\rat(s)=[a]_\rat(r+s)$. \label{prop:exp-Q-add-prop}
+		\item $[[a]_\rat(r)]_\rat(s)=[a]_\rat(rs)$. \label{prop:exp-Q-multi-prop}
+		\item $[a]_\rat(r)>0$ for all $r \in \rat$. \label{prop:exp-Q-non-zero}
+		\item $[a]_\rat$ is strictly increasing for $a>1$, and stictly decreasing for $a<1$. \label{prop:exp-Q-inc-prop}
+		\item If $a\neq 1$, for every $x_1>x_0>0$, there exists some $r\in \rat$ such that $x_0 < [a]_\rat(r) < x_1$.\label{prop:exp-Q-connect}
+		\item $[a]_\rat$ is continuous.\label{prop:exp-Q-cont-prop}
+	\end{enumerate}
+\end{prop}
+\begin{proof}
+	Suppose $r=\frac{m}{n}$ and $s=\frac{p}{q}$ for $n,q>0$.
+	Observe $r+s=\frac{mq+np}{nq}$.
+	Therefore, statement \eqref{prop:exp-Q-add-prop} follows from
+	\begin{align*}
+		[a]_\rat(r+s)=(\sqrt[nq] a)^{mq+np}&=(\sqrt[nq] a)^{mq}(\sqrt[nq] a)^{np} \\
+		&=(\sqrt[n] a)^m(\sqrt[q] a)^p \\
+		&=[a]_\rat(r)[a]_\rat(s)
+	\end{align*}
+	where the second to last equality follows from proposition \eqref{prop:basic-root-prop}.
+	
+	Using the definition of $[a]_\rat$, and proposition \eqref{prop:basic-root-prop}, it follows that
+	\begin{align*}
+		[[a]_\rat(r)]_\rat(s)
+			=\paren{\sqrt[q] {\paren{\sqrt[n] a}^m}}^p
+			&=\sqrt[q] { \sqrt[n] {(a^m)^p} } \\
+			&=\sqrt[nq] {(a^{mp})} \\
+			&=[a]_\rat\paren{\frac{mp}{nq}} \\
+			&=[a]_\rat(rs)
+	\end{align*}
+	which competes the proof for statement \eqref{prop:exp-Q-multi-prop}.
+	
+	The proof of statement \eqref{prop:exp-Q-non-zero} is similar to the proof of statement \eqref{prop:exp-prop-non-zero} in proposition \eqref{prop:exp-basic-property}.
+	$[a]_\rat$ follows immediatly by the definition of $n$-powers and $n$-roots ($n$-roots are always defined to be postive). 
+	
+	Suppose $a>1$.
+	If $r < s$, then $\frac{m}{n}<\frac{p}{q}$.
+	Since we assumed $n,q>0$, we have $mq < np$.
+	By proposition \eqref{prop:basic-root-prop}, we have $a^{mq} < a^{np}$, since for $a>1$, $a^k$ is an strictly increasing function for integers.
+	Taking the $nq$-root on both sides, we obtain $\sqrt[n] {a^m} < \sqrt[q] {a^p}$ since the inverse of an increasing function is increasing.
+	$\sqrt[n] {a^m} < \sqrt[q] {a^p}$ is equivilent to $[a]\paren{\frac{m}{n}} < [a] \paren{\frac{p}{q}}$.
+	In the case $a<1$, the statement $[a]_\rat$ is decreasing follows from composing $[1/a]_\rat$ with the function $-r$.
+	This proves statement \eqref{prop:exp-Q-inc-prop}.
+	
+	We show that statement \eqref{prop:exp-Q-connect} is true in the case $a>1$.
+	If $x_1>x_0$, we have $\frac{x_1}{x_0}>1$.
+	In particular, there exists some $n\in \nat$ such that $a < \paren{\frac{x_1}{x_0}}^n$ (since exponents are unbounded from above and increasing for $a>1$ by proposition \eqref{prop:basic-root-prop}).
+	Therefore ${x_1}^n > a {x_0}^n$.
+	Since the set
+	$$\{k \in \nat \mid a^k > {x_0}^n\}$$
+	is non-empty (since exponents are unbounded from above and increasing for $a>1$) and a subset of $\nat$, a well-ordered set, there exists a least element, which we call $m$.
+	Observe $a^{m-1}< {x_0}^n$, therefore
+	$${x_1}^n> a{x_0}^n > a \cdot a^{m-1} = a^m > {x_0}^n,$$
+	where the last inequality follows from the definition of $m$.
+	Since the inverses of strictly increasing functions are increasing and $a^k$ is a strictly increasing function, taking the $n$-root of the previous inequality gives
+	$$x_0<\sqrt[n] {a^m} = [a]_\rat\paren{\frac{m}{n}}<x_1.$$
+	The case when $a<1$ follows from the $a>1$ case and is left as an exercise.
+	
+	To prove continuity, fix any $r_0\in\rat$,\footnote{Remember every point $\rat$ is a limit point $\rat$, so we must check every point.} we prove the limit of $[a]_\rat$ at $r_0$ is exactly $[a]_\rat(r_0)$.
+	fix some $\epsilon>0$.
+	Then following statement \eqref{prop:exp-Q-connect} there exists $r_-,r_+$ such that
+	$$[a]_\rat(r_-) \in ([a]_\rat(r_0)-\epsilon, [a]_\rat(r_0)) \jand [a]_\rat(r_+)\in ([a]_\rat(r_0), [a]_\rat(r_0) + \epsilon).$$
+	Since $[a]_\rat$ is increasing by statement \eqref{prop:exp-Q-inc-prop}, we have $r_- < r_0 < r_+$.
+	If we define $\delta:=\min\{r_0-r_-, r_+-r_0\}$, $\delta>0$, and if $|r-r_0|< \delta$,
+	then $r_-<r_0-\delta < r < r_0 + \delta < r_+$.
+	Since $[a]_\rat$ is increasing, we require
+	$$[a]_\rat(r_0)-\epsilon < [a]_\rat(r_-) < [a]_\rat(r)< [a]_\rat (r_+)< [a]_\rat(r_0) + \epsilon.$$
+	It follows that
+	$$|[a]_\rat(r)-[a]_\rat(r_0)| < \epsilon$$
+	thereby proving continuity.\footnote{Special thanks to Marc van Leeuwen for providing this proof. Here's a link to his original post: \href{https://math.stackexchange.com/a/762816}{https://math.stackexchange.com/a/762816}}
+\end{proof}
+
+Now to complete our construction by defining $[a]: \real \to \real$ as
+\begin{equation}
+	[a](x):=\lim_{r \to x} [a]_\rat(r). \label{eq:exp-construction}
+\end{equation}
+In the subsequent section, we will show this is indeed an exponential with base $a$.
+For now, let's observe the fact that every continuous extension of $[a]_\rat$ to a function in $\real$ must satisfy the limit in equation \eqref{eq:exp-construction}.
+In addition, since every point in $\real$ is a limit point of $\rat$, the uniqueness of the limit implies $[a](x)$ is the only possible extension.
+Since every exponential with base $a$ restricts to $[a]_\rat$ on $\rat$, it follows that if $[a](x)$ is indeed an exponential with base $a$, it is unique.
+
+\begin{prop}
+	$[a]$ as given in equation \eqref{eq:exp-construction} is an exponential with base $a$.
+\end{prop}
+\begin{proof}
+	$[a]$ is clearly continuous and $[a](1)=a$ follows immediatly from the definition.
+	It suffices to prove property \eqref{def:exp-prop-add}.
+	
+	For any $x,y\in \real$, since $[a]$ is continuous, the limit
+	$$\lim_{u \to x} \lim_{v \to y} [a](u+v)$$
+	exists and is equal to
+	$$\lim_{r\to x} \lim_{s \to y} [a]_\rat(r+s)$$
+	since $\rat$ is dense in $\real$.
+	Using this fact, we deduce
+	\begin{align*}
+		[a](x)[a](y) 	&=\paren{\lim_{r \to x} [a]_\rat(r)}\paren{\lim_{s \to y} [a]_\rat(s)} \\
+						&=\lim_{r \to x} \paren{[a]_\rat(r) \paren{\lim_{s \to y} [a]_\rat(s)}} \footnote{This follows from the fact limits commute with multiplication by a scalar, with scalar in this case being $\lim_{s \to y} [a]_\rat(s)$} \\
+						&=\lim_{r \to x} \lim_{s \to y} \paren{[a]_\rat(r)[a]_\rat(s)} \\
+						&=\lim_{r\to x} \lim_{s \to y}[a]_\rat(r+s) \\
+						&=\lim_{r\to x} \lim_{s \to y}[a](r+s) \\
+						&=[a](x+y)
+	\end{align*}
+	where the last equality follows by continuity.
+\end{proof}
+
+This shows that the exponential defined in definition \eqref{def:exponential} does indeed exist and is unique.
+In addition to the properties listed in \eqref{prop:exp-basic-property}, we have these additional properties, whose proofs we will omit (they follow from the corresponding properties as laid out for $[a]_\rat$ and by density of $\rat$ in $\real$).
+\begin{prop} \label{prop:exp-extend-properties}
+	For $a >0$, the exponential $[a]$ has the following:
+	\begin{enumerate}
+		\item $[a]$ is stictly increasing if $a>1$, stictly decreasing if $a<1$ and constant if $a=1$.
+		\item $[a]$ is unbounded from above.
+		\item $[[a](x)](y)=[a](xy)$.
+	\end{enumerate}
+\end{prop}
+
+Having constructed the exponential for each $a>0$, let's now focus on a more analytical analysis.
+Figure \eqref{fig:exp} displays $[2]$ plotted on a coordinate axis.
+We can see that this function is clearly increasing, and, qualitatively, that its range is $(0,\infty)$, a fact we will prove quantitatively in the next section.
+We also note that the function gets close to zero as $x \to -\infty$ ($x \to \infty$  in the case $a<1$) without ever reaching it.
+This is what's known as an \textit{asymptote}, and in this case, the exponential approaches zero asymptotically as $x \to \infty$ (or $-\infty$).
+We will also, from this point on, move to the standard notation for an exponential with base $a$, which is $[a](x):=a^x$.
 
 \begin{figure}[h]
 	\centering
 	\begin{tikzpicture}
 		\begin{axis}
-			\addplot[thick, color=blue, samples=100]{exp(x)};
+			\addplot[thick, color=blue, samples=100]{2^x};
 		\end{axis}
 	\end{tikzpicture}
 	\caption{}
 	\label{fig:exp}
 \end{figure}
 
-If we decide to plot the exponential function, we notice in figure \eqref{fig:exp} that the exponential is defined for all real numbers, but as the input gets smaller and smaller, it seems to \textit{approach} zero. We call this a \textbf{horizontal asymptote} and claim there's a horizontal asymptote for the function $a^x$ when $x$ approaches $-\infty$. Since the function never reaches zero, we claim the domain and image for the exponential function is
-$$\mathcal{D}=\real \jand a^\mathcal{D}=(0,+\infty).$$
-
 \subsection{Inverse of Exponential (Logarithm)}
-\begin{define}
-	Let $f(x)=a^x$. Then $f^{-1}(x)=log_a(x)$ read "log base $a$ of $x$".\footnotemark
+\begin{prop} \label{prop:exp-range}
+	For any $a$, the exponetial with base $a$ has the range $(0,\infty)$.
+\end{prop}
+\begin{proof}
+	By proposition \eqref{prop:exp-extend-properties}, we have $a^x$ is unbounded from above, hence for every $M>0$, there exists some $x$ such that $M<a^x$.
+	
+	Then fix any $N>0$, by the above characterization, there exists some $-x\in \real$ such that $\frac{1}{N} < a^{-x}$.
+	Since $\frac{1}{N}$ is postive, we have $\frac{1}{a^{-x}} = a^x < N$.
+	To summarize, for every $N>0$, there exists $x\in \real$ such that $a^x<N$.
+	We will use this characterization to show $a^x$ maps onto $(0,\infty)$.
+	
+	We know $a^x$ maps into $(0,\infty)$ by proposition \eqref{prop:exp-basic-property}, thus it suffices to show this mapping is surjective.
+	Fix any $y \in (0,\infty)$.
+	Since $a^x$ is unbounded from above, there exists $x_+$ such that $y<a^{x_+}$.
+	Using the characterization of the exponential at the beginning of the proof, there exists $x_-$ such that $a^{x_-}<y$.
+	By the intermediate value theorem in the previous lesson, there must exist some $w$ between $x_-$ and $x_+$ such that $a^w = y$.
+	This completes the proof of the proposition.
+\end{proof}
+
+Proposition \eqref{prop:exp-range} proves that the map $a^x:\real \to (0,\infty)$ is bijective since the injectivity of $a^x$ follows from the strictly increasing (or decreasing) nature of $ a^x$.
+Therefore, it must admit an inverse of the form $(0,\infty) \to \real$.
+
+\begin{define}[Logarithm]
+	Denote the inverse of $a^x$ as $log_a(x)$ read "log base $a$ of $x$".\footnotemark
 \end{define}
+
 \begin{figure}[h]
 	\centering
 	\begin{tikzpicture}
@@ -171,18 +455,26 @@ $$\mathcal{D}=\real \jand a^\mathcal{D}=(0,+\infty).$$
 	\caption{}
 	\label{fig:log}
 \end{figure}
-\footnotetext{When you see a log without a subscript, it can mean one of two things depending on context. In general, this will mean $log_{10}$, since this is used often when plotting data that grows exponentially. In a more mathematical context, this will generally mean natural log, which we will discuss later.}
-As you can see in figure \eqref{fig:log}, the logarithm is defined for all $x\in(0,\infty)$. We can observe there is a \textbf{vertical asymtote} at $0$.
-Since as far as we are concerned, the image of $a^x$ doesn't include negative numbers, the logarithm is not defined for $(-\infty,0]$.
+\footnotetext{When you see a log without a subscript, it can mean one of two things depending on context. In general, this will mean $log_{10}$, since this is often used when plotting data that grows exponentially. In a more mathematical context, this will generally mean natural log, which we will discuss later.}
 
-Now we have the definition of the logarithm, let's look at some of its properties.
-\begin{theorem}
+We can see the plot of the logarithm in \eqref{fig:log}.
+Observe, the asymptotic behavior that we observed before slightly changed and in the case of the logarithm, we get $\log_a(x) \to -\infty$ ($\log_a(x) \to \infty$ in the case $a<1$) as $x \to 0$.
+
+The plot clearly indicates that $\log_a(x)$ is also a continuous function, a non-trivial fact given that not every continuous bijection admits a continuous inverse.
+I will leave the analytical proof of this fact as an exercise for our readers.\footnote{
+	For interested readers, this fact can be derived from the fact that $a^x$ is an open mapping, which, in the case of real maps, is a map where the image of every open interval is open.
+	The fact that $a^x$ is an open map follows immediately from the fact the fact $a^x$ is strictly increasing (decreasing) and by the intermediate value theorem.
+	Thus, it remains to show these open mapping conditions imply continuity of the inverse (For a bonus, show the converse is true, namely if a continuous bijection has a continuous inverse, then it's an open mapping).}
+
+Now, let's look at some of its other properties.
+
+\begin{prop}
 	Let $x,y\in\real$, and $a\in\real^{+}$ then the following hold:
 	\begin{enumerate}
 		\item $\log_a(x)+\log_a(y)=\log_a(xy)$
 		\item $y\log_a(x)=\log_a(x^y)$
 	\end{enumerate}
-\end{theorem}
+\end{prop}
 \begin{proof}
 	Since
 	$$a^{\log_a(xy)}=xy=a^{\log_a(x)}a^{\log_a(y)}=a^{\log_a(x)+\log_a(y)}.$$
@@ -230,11 +522,14 @@ $$a^x=b^{\log_b(a)x}$$
 \end{proof}
 
 What theorems \eqref{thm:changeofexp} and \eqref{thm:changeoflog} tell us is that we can write any exponential as an exponential function of any other base.
-
 The utility of theorems \eqref{thm:changeofexp} and \eqref{thm:changeoflog} might not be immediately clear, so let's discuss it here.
-Like $\pi$, there is a number $e\approx 2.71828$ which is also irrational that we often use in the context of exponentials. $e$ can be thought of as a preferred basis when working with exponentials, due to its special properties.
-We will not discuss the special properties of this number, since it relates heavily to calculus, but we will introduce the notation to get you familiar with the idea.
-For example, using theorem \eqref{thm:changeofexp}, we can write the function
+
+Like $\pi$, there is an irrational number $e\approx 2.71828$ that we often use in the context of exponentials.
+Mathematicians often like writing exponentials in terms of this base due to its special properties, which our readers will encounter in calculus.
+We won't cover the special properties of this number because they are closely related to calculus, but we'll introduce the notation to help you understand the concept.
+I will reserve the discussion of these properties for when our readers inevitably take calculus (or not).
+
+Using theorem \eqref{thm:changeofexp}, we can write the function
 $$f(x)=2^x$$
 as
 $$f(x)=e^{\log_e(x)x}$$
@@ -242,35 +537,37 @@ Because of how fundamental $e^x$ is in the context of exponentials, we give it a
 The advantage of this notation is that sometimes, with longer arguments, it's a little easier to read, but it also highlights that although similar, the $\real$ exponential and the discrete version are distinct mathematical operations.
 Additionally, we also define a special function for $\log_e(x)$ called $\ln(x)$, or natural logarithm (or \textit{logarithme naturel}  in French).
 
-Although we started by defining an exponential with an arbitrary base, in modern mathematics, we first define $\exp(x)$ (or $\ln(x)$) since we view $e^x$ and $\ln(x)$ as more fundamental than an exponential with an arbitrary base (hence why its called \textit{natrual} log). Hopefully, in a future math class, the reason for this will become clearer, but for this class, we will end our discussion here.
-
 \section{Trignometry}
+ Now we have come to everyone's favorite topic, trigonometry.
+ I've included exponentials and trigonometry in the same lesson since they are actually inherently connected.
+ In the next lesson, we will see a formula that relates these seemingly distant concepts in a remarkably beautiful way.
 \subsection{Definition}
- Now we have come to everyone's favorite topic, trig. But before, we get into this topic, we must define our functions.
- 	\begin{define}
- 		\label{def:trigdefine}
-		Using the figure below, let $\odot\,O$ be a unit circle (radius 1), then for any $\theta\in\real$ (measuring counterclockwise from $+x$ axis if $\theta$ is positive, and clockwise if $\theta$ is negative)
-		$$x=\cos(\theta) \jand y=\sin(\theta)\footnotemark$$
-		\begin{center}
-			\begin{tikzpicture}
- 				\draw[thick,black] (0,0) circle (2);
- 				\filldraw[thick,black] (0,0) coordinate (O) circle (0.05) node[above left] {$O$};
+\begin{define} \label{def:trigdefine}
+	Using the figure below, let $\odot\,O$ be a unit circle (radius 1), then for any $\theta\in\real$ (measuring counterclockwise from $+x$ axis if $\theta$ is positive, and clockwise if $\theta$ is negative)
+	$$x=\cos(\theta) \jand y=\sin(\theta)\footnotemark$$
+	\begin{center}
+		\begin{tikzpicture}
+ 			\draw[thick,black] (0,0) circle (2);
+ 			\filldraw[thick,black] (0,0) coordinate (O) circle (0.05) node[above left] {$O$};
 
- 				\filldraw (1.41,1.41) coordinate (A) circle (0.05) node[right] {$(x,y)$};
+ 			\filldraw (1.41,1.41) coordinate (A) circle (0.05) node[right] {$(x,y)$};
 
- 				\draw[thick,blue,->] (0,0) -- (2.5,2.5) ;
+ 			\draw[thick,blue,->] (0,0) -- (2.5,2.5) ;
 
- 				\draw[thick,<->] (-3,0) -- (3,0) coordinate (B) node[above] {$+x$};
- 				\draw[thick,<->] (0,-3) -- (0,3) node[right] {$+y$};
+ 			\draw[thick,<->] (-3,0) -- (3,0) coordinate (B) node[above] {$+x$};
+ 			\draw[thick,<->] (0,-3) -- (0,3) node[right] {$+y$};
 
- 				\draw pic["$\theta$", draw,->, black, thick, fill=red, fill opacity=0.3, angle radius=1cm] {angle = B--O--A};
-			\end{tikzpicture}
+ 			\draw pic["$\theta$", draw,->, black, thick, fill=red, fill opacity=0.3, angle radius=1cm] {angle = B--O--A};
+		\end{tikzpicture}
 	\end{center}
 \end{define}
 
-\footnotetext{Check this is the same definition as \textit{"SOHCAHTOA"}.}
+\footnotetext{Check this is the same definition traditional definition, colloquially known as \textit{"SOHCAHTOA"}.}
 
-Then using definition \eqref{def:trigdefine}, we can define the other trig functions in the conventional manner:
+From the definition, since the values of $\sin(x)$ and $\cos(x)$ vary continuously along the unit circle, they are therefore continuous.
+We will leave the rigorous proof of the fact to the end of the section.
+
+Then, using definition \eqref{def:trigdefine}, we can define the other trig functions in the conventional way.
 $$\tan(x)=\frac{\sin(x)}{\cos(x)}
 \for x\in \cbrak{x\in\real: x\neq \frac{\pi}{2}+\pi n, \:
 \forall n\in\nat}$$
@@ -283,8 +580,9 @@ $$\text{sec}(x)=\frac{1}{\cos(x)}
 \for x\in \cbrak{x\in\real: x\neq \frac{\pi}{2}+\pi n, \:
 \forall n\in\nat}$$
 
-Then to find the image, trivially from the definition \eqref{def:trigdefine}, $|\sin(x)|,|\cos(x)\le 1$, hence the image of $\sin(x)$ and $\cos(x)$ is the interval $[-1,1]$.
-Then immediately, since $\csc(x)$ and $\text{sec}(x)$ are just the recipricals of $\sin(x)$ and $\cos(x)$ respectivly, $|\csc(x)|,|\text{sec}(x)|\ge 1$ hence the image these functions is the compound interval $[-\infty,-1]\cup[1,\infty]$.
+Then to find the image, immediatly from the definition \eqref{def:trigdefine}, $|\sin(x)|,|\cos(x)|\le 1$.
+Since the values of $-1$ and $1$ are obtained on $\sin(x)$ and $\cos(x)$, it follows from the intermediate value theorem that the range of $\sin(x)$ and $\cos(x)$ is $[-1,1]$.
+Since $\csc(x)$ and $\text{sec}(x)$ are just the reciprocals of $\sin(x)$ and $\cos(x)$ respectivly, immediatly we get the range of these functions is the compound interval $[-\infty,-1]\cup[1,\infty]$.
 
 Finding the image of $\tan(x)$ and $\cot(x)$ can be a bit more tricky, but we will leverage a computer to help us do this. Using figures \eqref{fig:tan} and \eqref{fig:cot}, we see the image of our two functions is $\real$.
 \begin{figure}[h]
@@ -308,9 +606,9 @@ $\sin(x)$ and $\cos(x)$ are $2\pi$ periodic, or equivalently,
 $$\sin(x)=\sin(x+2\pi) \jand \cos(x)=\cos(x+2\pi)$$
 \end{theorem}
 \begin{proof}
-	Since $\sin(x)$ $\cos(x)$ are defined on the unit circle, the angle can be represented $x$ can be more generally written as
-	$$x+2\pi k \for k\in\integ$$
-	Hence
+	Since $\sin(x)$ and $\cos(x)$ only depend on the angle between the $+x$-axis and a particular ray, by the geometric fact
+	$$x \simeq x+2\pi k \for k\in\integ$$
+	implies
 	$$\sin(x+2\pi k)=\sin(x) \jand
 	\cos(x+2\pi k)=\cos(x)$$
 	hence proving the theorem.
@@ -336,15 +634,18 @@ $\tan(x)$, $\cot(x)$ are $\pi$ periodic
 	\label{thm:sinodd}
 \end{theorem}
 \begin{proof}
-	Let's prove this statement first only for the domain $[-\pi,\pi]$.
-	For an angle $\theta$, since $-\theta$ is the same angle reflected over the x-axis, by this reflection and definition \eqref{def:trigdefine},
-	$$\sin(x)=-\sin(-x)$$
-	Then by theorem \eqref{thm:perod},
-	$$\sin(x)=\sin(x+2\pi k)=-\sin(-x)=-\sin(-x+2\pi m)$$
-	for arbitrary $k,m\in\integ$. Then since these constants are arbitrary, let $k=-m$, hence
-	$$\sin(x+2\pi k)=-\sin(-x-2\pi k)$$
-	which implies
-	$$\sin(x+2\pi k)=-\sin(-(x+2\pi k))$$
+	Let's prove this statement first,  only for the domain $[-\pi,\pi]$.
+	If $\theta \in [-\pi,\pi]$, negating $\theta$ corisponds to a reflection of over the $x$-axis.
+	Therefore, definition \eqref{def:trigdefine} gives
+	$$\sin(x)=-\sin(-x).$$
+	
+	By theorem \eqref{thm:perod},
+	$$\sin(x+2\pi k)=\sin(x)=-\sin(-x)=-\sin(-x+2\pi m).$$
+	If we let $m = -k$, we obtain
+	\begin{align*}
+		\sin(x+2\pi k)&=-\sin(-x-2\pi k) \\
+		\sin(x+2\pi k)&=-\sin(-(x+2\pi k)).
+	\end{align*}
 	Since $x+2\pi k$ covers the entire set $\real$, we conclude that $\sin(x)$ is odd over $\real$.
 \end{proof}
 
@@ -353,16 +654,7 @@ $\tan(x)$, $\cot(x)$ are $\pi$ periodic
 	\label{thm:coseven}
 \end{theorem}
 \begin{proof}
-	Following very closely to the previous proof, let's prove this statement first only for the domain $[-\pi,\pi]$.
-	For an angle $\theta$, since $-\theta$ is the same angle reflected over the x-axis, by this reflection and definition \eqref{def:trigdefine},
-	$$\cos(x)=\cos(-x)$$
-	Then by theorem \eqref{thm:perod},
-	$$\cos(x)=\cos(x+2\pi k)=\cos(-x)=\cos(-x+2\pi m)$$
-	for arbitrary $k,m\in\integ$. Then since these constants are arbitrary, let $k=-m$, hence
-	$$\cos(x+2\pi k)=\cos(-x-2\pi k)$$
-	which implies
-	$$\cos(x+2\pi k)=\cos(-(x+2\pi k))$$
-	Since $x+2\pi k$ covers the entire set $\real$, we conclude that $\cos(x)$ is even over $\real$.
+	Proof similar to theorem \eqref{thm:sinodd}.
 \end{proof}
 
 \begin{cor}
@@ -371,7 +663,6 @@ $\tan(x)$, $\cot(x)$ are $\pi$ periodic
 \begin{proof}
 	Exercise.
 \end{proof}
-
 
 
 \subsubsection{Pythagorean-esque Identies}
@@ -431,7 +722,7 @@ $$\cos(\alpha-\beta)=\cos(\alpha)\cos(\beta)+\sin(\alpha)\sin(\beta)$$
 	Using theorems \eqref{thm:coseven} and \eqref{thm:sinodd},
 	$$\cos(\alpha-\beta)=
 	\cos(\alpha)\cos(-\beta)-\sin(\alpha)\sin(-\beta)=
-	\cos(\alpha)\cos(\beta)+\sin(\alpha)\sin(\beta)$$
+	\cos(\alpha)\cos(\beta)+\sin(\alpha)\sin(\beta).$$
 \end{proof}
 
 \begin{theorem}
@@ -455,8 +746,11 @@ $$\sin(\alpha-\beta)=\sin(\alpha)\cos(\beta)-\cos(\alpha)\sin(\beta)$$
 
 \begin{cor}[Double angle]
 	For $\theta\in\real$, the following are true:
-	$$\sin(2\theta)=2\sin(\theta)\cos(\theta)$$
-	$$\cos(2\theta)=\cos^2(\theta)-\sin^2(\theta)$$
+	\begin{align*}
+		\sin(2\theta)&=2\sin(\theta)\cos(\theta) \\
+		\cos(2\theta)&=\cos^2(\theta)-\sin^2(\theta)
+	\end{align*}
+	
 	\label{cor:doubleangle}
 \end{cor}
 \begin{proof}
@@ -470,26 +764,29 @@ $$\sin(\alpha-\beta)=\sin(\alpha)\cos(\beta)-\cos(\alpha)\sin(\beta)$$
 \end{cor}
 \begin{proof}
 	Using corrolary \eqref{cor:doubleangle} and letting $x=\frac{\theta}{2}$ gives
-	$$\cos(x)=\cos^2\paren{\frac{x}{2}}-\sin^2\paren{\frac{x}{2}}.$$
+	\begin{equation} \label{eq:half-angle-eq1}
+		\cos(x)=\cos^2\paren{\frac{x}{2}}-\sin^2\paren{\frac{x}{2}}.
+	\end{equation}
 	Then by theorem \eqref{thm:pydi},
-	$$\cos^2(\frac{x}{2})+\sin^2(\frac{x}{2})=1$$
-	which implies
-	$$\sin^2\paren{\frac{x}{2}}=1-\cos^2\paren{\frac{x}{2}}.$$
-	Therefore by substitution,
-	$$\cos(x)=\cos^2\paren{\frac{x}{2}}-\paren{1-\cos^2\paren{\frac{x}{2}}}$$
-	hence
-	$$\cos(x)+1=2\cos^2\paren{\frac{x}{2}}$$
-	$$\cos\paren{\frac{x}{2}}=\pm\sqrt{\frac{\cos(x)+1}{2}}$$
-
+	\begin{align*}
+		\cos^2(\frac{x}{2})+\sin^2(\frac{x}{2})	&=1 \\
+		\sin^2\paren{\frac{x}{2}}				&=1-\cos^2\paren{\frac{x}{2}}.
+	\end{align*}
+	Therefore by substitution into equation \eqref{eq:half-angle-eq1},
+	$$\cos(x)=\cos^2\paren{\frac{x}{2}}-\paren{1-\cos^2\paren{\frac{x}{2}}}.$$
+	Thus,
+	\begin{align*}
+		\cos(x)+1				&=2\cos^2\paren{\frac{x}{2}} \\
+		\cos\paren{\frac{x}{2}}	&=\pm\sqrt{\frac{\cos(x)+1}{2}}
+	\end{align*}
 	Then again by theorem \eqref{thm:pydi},
-	$$\cos^2\paren{\frac{x}{2}}=1-\sin^2\paren{\frac{x}{2}}$$
-	is true.
-	Therefore by substitution,
-	$$\cos(x)=\paren{1-\sin^2\paren{\frac{x}{2}}}-\sin\paren{\frac{x}{2}}$$
-	implying
-	$$\cos(x)-1=-2\sin\paren{\frac{x}{2}}$$
-	hence
-	$$\sin\paren{\frac{x}{2}}=\pm\sqrt{\frac{1-\cos(x)}{2}}$$
+	$$\cos^2\paren{\frac{x}{2}}=1-\sin^2\paren{\frac{x}{2}}.$$
+	By subsitution into equation \eqref{eq:half-angle-eq1}
+	\begin{align*}
+		\cos(x)					&=\paren{1-\sin^2\paren{\frac{x}{2}}}-\sin\paren{\frac{x}{2}} \\
+		\cos(x)-1				&=-2\sin\paren{\frac{x}{2}} \\
+		\sin\paren{\frac{x}{2}}	&=\pm\sqrt{\frac{1-\cos(x)}{2}}
+	\end{align*}
 	thereby proving the theorem.
 \end{proof}
 
@@ -506,8 +803,10 @@ $$\sin(x)=\cos\paren{\frac{\pi}{2}-x}$$
 	Since
 	$$\sin\paren{\frac{\pi}{2}}=1 \jand \cos\paren{\frac{\pi}{2}}=0,$$
 	it immediately follows that
-	$$\cos\paren{\frac{\pi}{2}-x}=\cos(x)\cdot 0 + \sin(x)\cdot 1$$
-	$$=\sin(x)$$
+	\begin{align*}
+		\cos\paren{\frac{\pi}{2}-x}	&=\cos(x)\cdot 0 + \sin(x)\cdot 1 \\
+									&=\sin(x)
+	\end{align*}
 	hence proving the theorem.
 \end{proof}
 
@@ -534,8 +833,7 @@ $$\tan(x)=\cot\paren{\frac{\pi}{2}-x}$$
 	$$\tan\paren{\frac{\pi}{2}-x}=\frac{\sin\paren{\frac{\pi}{2}-x}}{\cos\paren{\frac{\pi}{2}-x}}$$
 	Then by theorem \eqref{thm:coscomp} and corollary \eqref{cor:sincomp},
 	$$\frac{\sin\paren{\frac{\pi}{2}-x}}{\cos\paren{\frac{\pi}{2}-x}}
-	=\frac{\cos(x)}{\sin(x)}=\cot(x)$$
-
+	=\frac{\cos(x)}{\sin(x)}=\cot(x).$$
 	Then $\tan(x)=\cot\paren{\frac{\pi}{2}-x}$ follows immediately.
 \end{proof}
 
@@ -550,8 +848,7 @@ $$\text{sec}(x)=\csc\paren{\frac{\pi}{2}-x}$$
 	Then by theorem \eqref{thm:coscomp},
 	$$\frac{1}{\cos\paren{\frac{\pi}{2}-x}}
 	=\frac{\sin(x)}{\sin(x)}=\csc(x)$$
-
-	Then $\text{sec}(x)=\csc\paren{\frac{\pi}{2}-x}$ follows immediately.
+	$\text{sec}(x)=\csc\paren{\frac{\pi}{2}-x}$ follows immediately.
 \end{proof}
 
 \subsection{Proving Trig Identities}
@@ -603,6 +900,89 @@ Using the identity that we proved in exercise \eqref{ex:sumtan}, we actually can
 	hence $\tan(x)=\tan(x+\pi)$ proving $\tan(x)$ is $\pi$ periodic. Then $\cot(x)$ is $\pi$ periodic follows trivially.
 \end{proof}
 
+\begin{ex} \label{ex:trig-cont-ident}
+	Using the sum and difference of sin identities, we have
+	\begin{align*}
+		\sin(x)	&=\sin\paren{\frac{x+y}{2}+\frac{x-y}{2}} \\
+				&=\cos\paren{\frac{x+y}{2}}\sin\paren{\frac{x-y}{2}}+\sin\paren{\frac{x+y}{2}}\cos\paren{\frac{x-y}{2}} \\
+		\sin(y)	&=\sin\paren{\frac{x+y}{2}-\frac{x-y}{2}} \\
+				&=-\cos\paren{\frac{x+y}{2}}\sin\paren{\frac{x-y}{2}}+\sin\paren{\frac{x+y}{2}}\cos\paren{\frac{x-y}{2}}
+	\end{align*}
+	Subtracting these identities gives us the helpful identity
+	$$\sin(x)-\sin(y)=2\cos\paren{\frac{x+y}{2}}\sin\paren{\frac{x-y}{2}}.$$
+\end{ex}
+
+\begin{figure}
+\centering
+	\begin{tikzpicture}
+ 		\draw[thick,black] (0,0) circle (2);
+ 		\filldraw[thick, black] (0,0) coordinate (O) circle (0.05) node[above left] {$O$};
+
+ 		\filldraw (1.41,1.41) coordinate (A) circle (0.05) node[above, shift={(0,0.2)}] {$A$};
+ 		\node[below, shift={(0.2,-0.1)}] at (2,0) {$B$};
+ 		\node[below, shift={(0,-0.1)}] at (1.41,0) {$C$};
+ 			
+ 		\draw[thick, black, dashed] (A) -- (1.41,0);
+ 		\draw[thick, purple, thick] (A) -- (2,0);
+
+ 		\draw[thick,blue,->] (0,0) -- (2.5,2.5) ;
+
+ 		\draw[thick,<->] (-3,0) -- (3,0) coordinate (B) node[above] {$+x$};
+ 		\draw[thick,<->] (0,-3) -- (0,3) node[right] {$+y$};
+
+ 		\draw pic["$\theta$", draw,->, black, thick, fill=red, fill opacity=0.3, angle radius=1cm] {angle = B--O--A};
+	\end{tikzpicture}
+	\caption{}
+	\label{fig:trig-estimate-plot}
+\end{figure}
+
+
+This identity, shown in example \eqref{ex:trig-cont-ident}, will in fact allow us to prove that the $\sin(x)$ is continuous.
+To do so, we still need an additional estimate of $\sin(x)$ derived from its geometric properties.
+
+Let $\theta \in \sbrak{0, \frac{\pi}{2}}$.
+In figure \eqref{fig:trig-estimate-plot}, given that $\odot \, O$ is the unit circle, then the lenght of $\overline {AC}$ is $\sin\theta$.
+Therefore, the area of $\triangle AOB$ is simply $\frac{1}{2}\overline{AC}$.
+Similarly, observe the sector $AOB$ has area $\frac{\theta}{2}$.
+Since the area of the sector completely encloses the area of the triangle, we have
+$$\sin\theta \le \theta$$
+after multiplying both areas by two.
+Since
+$$\sin\theta \le 1 \le \frac{\pi}{2},$$
+for $\theta \ge \frac{\pi}{2}$, we have the same estimate.
+Since $\sin\theta$ is odd, we have
+$$\theta \le \sin\theta$$
+for when $\theta < 0$.
+Thus, we have the estimate
+$$|\sin\theta| \le \theta.$$
+Now we are ready to prove continuity.
+
+\begin{theorem}
+	$\sin(x)$ are continuous functions.	
+\end{theorem}
+\begin{proof}
+	We show $\lim_{x \to x_0} \sin(x) = \sin(x_0)$.
+	Fix any $\epsilon>0$, define $\delta:= \epsilon$.
+	For $|x-x_0|<\delta$ we have
+	\begin{align*}
+		|\sin x-\sin x_0|	&=\abs{2\cos\paren{\frac{x+x_0}{2}}\sin\paren{\frac{x-x_0}{2}}} \\
+		&\le 2\abs{\sin\paren{\frac{x-x_0}{2}}} \le 2\paren{\frac{x-x_0}{2}} \\
+		&\le \delta = \epsilon.
+	\end{align*}
+\end{proof}
+
+\begin{cor}
+	$\cos(x)$ is continuous.	
+\end{cor}
+\begin{proof}
+	Immediate from the formula $\cos(x) = \sin\paren{\frac{\pi}{2}-x}$ from corollary \eqref{cor:sincomp}.
+\end{proof}
+\begin{cor}
+	All other trigonometric functions are continuous on their respective domains.	
+\end{cor}
+\begin{proof}
+	Immediate from the definition of these functions.
+\end{proof}
 \end{document}
 
 

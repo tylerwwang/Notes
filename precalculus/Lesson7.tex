@@ -1,126 +1,158 @@
 \documentclass[11pt]{article}
 
-\usepackage{amssymb}
-\usepackage{amsmath, esint}
-\usepackage{amsthm}
-\usepackage{array}
-\usepackage{longtable}
-\usepackage{mathtools}
-\usepackage{pdfpages}
-\usepackage{fancyhdr}
-\usepackage[figurename=Figure]{caption}
-\usepackage{empheq}
-\usepackage{mdframed}
-\usepackage[a4paper, left=1in,right=1in,top=1in,bottom=0.7in,footskip=0.6in,includeheadfoot]{geometry}
-\usepackage{tikz}
-\usepackage{pgfplots}
-\usepackage{hyperref}
-\usepackage{wrapfig}
-\usepackage{enumitem}
-\usepackage{lastpage}
-\usepackage{zref-totpages}
-
 %title
 \edef\mytitle{Precalculus}
 \edef\mysubtitle{Lesson 7: Rates of Change}
 \edef\mydate{July 10, 2024}
 \edef\myauthor{Tyler Wang}
 
-\usetikzlibrary{calc, backgrounds, angles, quotes}
+	%Configuration
+	\usepackage{amssymb}
+	\usepackage{amsmath, esint}
+	\usepackage{amsthm}
+	\usepackage{array}
+	\usepackage{longtable}
+	\usepackage{varwidth}
+	\usepackage{mathtools}
+	\usepackage{pdfpages}
+	\usepackage{fancyhdr}
+	\usepackage[figurename=Figure]{caption}
+	\usepackage{empheq}
+	\usepackage{mdframed}
+	\usepackage[a4paper, left=1in,right=1in,top=1in,bottom=0.7in,footskip=0.6in,includeheadfoot]{geometry}
+	\usepackage{tikz}
+	\usepackage{pgfplots}
+	\usepackage{hyperref}
+	\usepackage{wrapfig}
+	\usepackage{enumitem}
+	\usepackage{setspace}
+	\usepackage{multirow}
+	\usepackage{enumitem}
+	\usepackage{afterpage}
+	\usepackage{lastpage}
+	\usepackage{zref-totpages}
 
-\tikzset{
-    partial ellipse/.style args={#1:#2:#3}{
-        insert path={+ (#1:#3) arc (#1:#2:#3)}
-    }
-}
+	%Macros
+	\newcommand{\real}{\mathbb{R}}
+	\newcommand{\complex}{\mathbb{C}}
+	\newcommand{\rat}{\mathbb{Q}}
+	\newcommand{\nat}{\mathbb{N}}
+	\newcommand{\integ}{\mathbb{Z}}
+	\newcommand{\cpx}{\mathbb{C}}
 
-\setlength{\parskip}{10pt}
-\setlength{\parindent}{0pt}
+	\newcommand{\paren}[1]{\left(#1\right)}
+	\newcommand{\sbrak}[1]{\left[#1\right]}
+	\newcommand{\cbrak}[1]{\left\{#1\right\}}
 
-\fancyhf{}
-\fancyfoot[l]{\copyright \,\,\myauthor}
-\fancyhead[L]{\mysubtitle}
-\fancyhead[r]{\mytitle}
-\fancyfoot[c]{Page \thepage \hspace{1pt} of \ztotpages}
-\pagestyle{fancy}
+	\newcommand{\ceil}[1]{\left\lceil #1 \right\rceil}
+	\newcommand{\floor}[1]{\left\lfloor #1 \right\rfloor}
+	\newcommand{\abs}[1]{\left\lvert #1 \right\rvert}
+	\newcommand{\abrak}[1]{\left\langle #1 \right\rangle}
 
-\fancypagestyle{plain}{
-\fancyhf{}
-\fancyfoot[l]{\copyright \,\,\myauthor}
-\fancyfoot[c]{Page \thepage \hspace{1pt} of \ztotpages}
-\renewcommand{\headrulewidth}{0pt}}
+	\newcommand{\bra}[1]{\left\langle #1 \right\rvert}
+	\newcommand{\ket}[1]{\left\lvert #1 \right\rangle}
+	\newcommand{\braket}[2]{\left\langle #1 \left.\right\lvert #2 \right\rangle}
+	\newcommand{\ketbra}[2]{\left\lvert #1 \right\rangle\!\!\left\langle #2 \right\lvert}
 
-\newmdtheoremenv{lemma}{Lemma}
-\newmdtheoremenv{prop}{Proposition}
-\newmdtheoremenv{define}{Definition}
-\newmdtheoremenv{thm}{Theorem}
-\newmdtheoremenv{cor}{Corollary}
+	\newcommand{\tens}[1]{\stackrel{\leftrightarrow}{#1}}
 
-\numberwithin{lemma}{section}
-\numberwithin{equation}{section}
-\numberwithin{define}{section}
-\numberwithin{prop}{section}
-\numberwithin{figure}{section}
-\numberwithin{thm}{section}
-\numberwithin{cor}{section}
+	\newcommand{\jand}{\quad\text{and}\quad}
+	\newcommand{\jor}{\quad\text{or}\quad}
+	\newcommand{\for}{\quad\text{for }\,}
+	\newcommand{\comma}{,\quad}
 
-\newcounter{ex}[section]
-\newenvironment{ex}[0]{
+	\newcommand{\ieval}[2]{\Bigg|^{#2}_{#1}}
+	\newcommand{\deval}[1]{\bigg|_{#1}}
 
-	\refstepcounter{ex}
-    \subsection*{Example \theex .}
-    }
-    {
-    \hfill$\spadesuit$
-    \par
-    }
-\numberwithin{ex}{section}
+	\newcommand{\diff}[2]{\frac{d#1}{d#2}}
+	\newcommand{\pdiff}[2]{\frac{\partial#1}{\partial#2}}
+	%End Macros
 
-\def\real{\mathbb{R}}
-\def\complex{\mathbb{C}}
-\def\rat{\mathbb{Q}}
-\def\nat{\mathbb{N}}
-\def\integ{\mathbb{Z}}
-\def\mod#1{\mathbb{Z}_{#1}}
-\def\cpx{\mathbb{C}}
+	\usetikzlibrary{calc, backgrounds,angles, quotes}
+	\tikzset{
+	    partial ellipse/.style args={#1:#2:#3}{
+	        insert path={+ (#1:#3) arc (#1:#2:#3)}
+	    }
+	}
 
-\def\paren#1{\left(#1\right)}
-\def\sbrak#1{\left[#1\right]}
-\def\cbrak#1{\left\{#1\right\}}
 
-\def\ceil#1{\left\lceil #1 \right\rceil}
-\def\floor#1{\left\lfloor #1 \right\rfloor}
-\def\abs#1{\left\lvert #1 \right\rvert}
-\def\abrak#1{\left\langle #1 \right\rangle}
-\def\bra#1{\left\langle #1 \right\rvert}
-\def\ket#1{\left\lvert #1 \right\rangle}
-\def\braket#1#2{\left\langle #1 \left.\right\lvert #2 \right\rangle}
+	\fancyhf{}
+	\fancyfoot[l]{\copyright \,\,\myauthor}
+	\fancyhead[L]{\mysubtitle}
+	\fancyhead[r]{\mytitle}
+	\fancyfoot[c]{Page \thepage \hspace{1pt} of \ztotpages}
+	\pagestyle{fancy}
 
-\def\jand{\quad\text{and}\quad}
-\def\jor{\quad\text{or}\quad}
-\def\for{\quad\text{for }\,}
+	\fancypagestyle{plain}{
+	\fancyhf{}
+	\fancyfoot[l]{\copyright \,\,\myauthor}
+	\fancyfoot[c]{Page \thepage \hspace{1pt} of \ztotpages}
+	\renewcommand{\headrulewidth}{0pt}}
+	\setlength{\headheight}{15pt}
 
-\def\ieval#1#2{\Bigg|^{#2}_{#1}}
-\def\deval#1{\bigg|_{#1}}
+	\newcommand{\newmarkedtheorem}[1]{%
+	  \newenvironment{#1}
+	    {\renewcommand{\qedsymbol}{\ensuremath{\clubsuit}}\pushQED{\qed}\csname inner@#1\endcsname}
+	    {\popQED\csname endinner@#1\endcsname}%
+	  \newtheorem{inner@#1}%
+	}
 
-\def\diff#1#2{\frac{d#1}{d#2}}
-\def\pdiff#1#2{\frac{\partial#1}{\partial#2}}
+	\renewcommand\qedsymbol{$\blacksquare$}
+	\theoremstyle{plain}
 
-\def\sec#1{\section*{#1}\addtocounter{section}{1}\setcounter{subsection}{0}}
+	\newtheorem{theorem}{Theorem}
+	\newtheorem{lemma}[theorem]{Lemma}
+	\newtheorem{prop}[theorem]{Proposition}
+	\newtheorem{define}[theorem]{Definition}
+	\newtheorem{thm}[theorem]{Theorem}
+	\newtheorem{cor}[theorem]{Corollary}
 
-\hypersetup{
-    colorlinks=true,
-    urlcolor=blue,
-    linkcolor=magenta,
-    pdfborderstyle={/S/U/W 1}
-}
+	\theoremstyle{definition}
 
-\setlength\extrarowheight{3pt}
+	\newmarkedtheorem{remark}[theorem]{Remark}
+	\newmarkedtheorem{ex}[theorem]{Example}
 
-\title{\mytitle \\ [2ex] \Large \mysubtitle}
-\date{\small Modified \mydate}
-\author {Tyler Wang\thanks{
-\href{mailto:wangtyler123@gmail.com}{wangtyler123@gmail.com}}}
+	\newtheorem{exercise}{Exercise}
+
+	\numberwithin{equation}{section}
+	\numberwithin{theorem}{section}
+	\numberwithin{figure}{section}
+	\numberwithin{exercise}{section}
+
+	\newcommand{\optionalsection}[1]{
+		\section{#1\textsuperscript{$\S$}}
+		\customfootnotetext{$\S$}{Optional section: may be skipped without loss of continuity.}
+	}
+
+	\newenvironment{block}
+	{
+	    \begin{center}
+	    \begin{em}\small
+	    \begin{tabular}{p{0.9\linewidth}}
+	}{
+	    \end{tabular}
+	    \end{em}
+	    \end{center}
+	}
+
+	\hypersetup{
+	    colorlinks=true,
+	    urlcolor=blue,
+	    linkcolor=magenta,
+	    pdfborderstyle={/S/U/W 1}
+	}
+
+	\setlength\extrarowheight{3pt}
+	\setlength{\parskip}{5pt}
+
+	\setlength{\tabcolsep}{5pt}
+	\onehalfspacing
+	%End Configuration
+
+	\title{\mytitle \\ [2ex] \Large \mysubtitle}
+	\date{\small Modified \mydate}
+	\author {\myauthor
+		\thanks{\href{https://tylerwang.org}{tylerwang.org}}}
 
 \begin{document}
 \maketitle
@@ -132,24 +164,24 @@ As we know from geometry, we can find the equation of a line using only two poin
 \begin{ex}
 	In this example, I'd like to find the linear approximation for the function
 	$$f(x)=5x^3+2x+3$$
-	for the point $(1,f(1))$. 
+	for the point $(1,f(1))$.
 	We know from previous math classes, that if we had two points, we could generate a line through those points and find its slope. Therefore, we must find two points the point $(1,f(1))$, where we can draw a line through it.
-	
+
 	For now, let's use the point $(0,f(0))$ and $(2,f(2))$. To find the line that goes through these points, we use the formula
 	$$\frac{f(b)-f(a)}{b-a}=\frac{f(2)-f(0)}{2-0}=\frac{47-3}{2}=22$$
-	Then using point-slope form, we get 
+	Then using point-slope form, we get
 	$$y-f(0)=y-3=22x$$
 	Hence converting to slope-intercept form, we get the line
 	$$y=22x+3.$$
 	Then using figure \eqref{fig:averageslope1}, we can see we did a pretty good job here approximating, but I think we can do better.
-	
+
 	\begin{figure*}[h]
 	\centering
 		\resizebox{0.7\textwidth}{!}{\includegraphics{assets/Lesson7/averageslope1.png}}
 		\caption{}
 		\label{fig:averageslope1}
 	\end{figure*}
-	
+
 	Let's shrink our interval so we take the line that runs between the points $\paren{\frac{1}{2},f\paren{\frac{1}{2}}}$ and $\paren{\frac{3}{2},f\paren{\frac{3}{2}}}$.
 	Using the same formula as before, we get
 	$$\frac{f\paren{\frac{3}{2}}-f\paren{\frac{1}{2}}}{1.5-0.5}=\frac{\frac{183}{8}-\frac{37}{8}}{1}=\frac{73}{4}$$
@@ -184,7 +216,7 @@ In this section, let's try to take the approximation to 0. As seen in previous e
 	on the point $(1,f(1))$.
 	We know the formula for the approximate slope of a point generally is
 	$$\frac{f(x+h)-f(x)}{h}.$$
-	Now let's compute this as $h\to0$ in general in a limit. 
+	Now let's compute this as $h\to0$ in general in a limit.
 	$$\lim_{h\to0}\frac{f(x+h)-f(x)}{h}=\lim_{h\to0}\frac{((x+h)^2-(x+h))-(x^2-x)}{h}$$
 	$$=\lim_{h\to0}\frac{(x^2+2xh+h^2-(x+h))-(x^2-x)}{h}$$
 	$$=\lim_{h\to0}\frac{2xh+h^2-h}{h}$$
@@ -192,7 +224,7 @@ In this section, let's try to take the approximation to 0. As seen in previous e
 	$$=\lim_{h\to0}2x-h+1$$
 	Now since this is a nice smooth function, by plotting it, we can easily tell the limit as $h\to0$ is just whatever the function outputs, hence
 	$$=2x+1$$
-	This is our tangent line approximation, and if we substitute in $x=1$, we get the slope at this point is 
+	This is our tangent line approximation, and if we substitute in $x=1$, we get the slope at this point is
 	$$2(1)-1=1,$$
 	hence using the same technique as before, we get the tangent line is
 	$$y=x-1$$
@@ -247,7 +279,7 @@ Now armed with this, let's compute this formula in general.
 	\label{ex:gentan}
 \end{ex}
 
-In example \eqref{ex:gentan}, we only computed the slope if the polynomial was one term. To generalize to all polynomials, we need to know how these slopes add. 
+In example \eqref{ex:gentan}, we only computed the slope if the polynomial was one term. To generalize to all polynomials, we need to know how these slopes add.
 
 \begin{thm}
 	Suppose $f,g$ are both polynomials. If $f',g'$ are functions that produce the slope of their tangent line approximations, then the slope of the tangent line approximation of their sum is given as
@@ -305,7 +337,7 @@ The mathematical jargon might be difficult to navigate, but all the two definiti
 	\begin{tikzpicture}
 		\begin{axis}
 			\addplot[blue, domain=-1.5:1.5,samples=50] {1/2*x^3-x};
-			
+
 		\end{axis}
 		\eqref{fig:localmax}
 	\end{tikzpicture}

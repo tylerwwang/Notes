@@ -1,134 +1,164 @@
 \documentclass[11pt]{article}
 
-\usepackage{amssymb}
-\usepackage{amsmath, esint}
-\usepackage{amsthm}
-\usepackage{array}
-\usepackage{longtable}
-\usepackage{mathtools}
-\usepackage{pdfpages}
-\usepackage{fancyhdr}
-\usepackage[figurename=Figure]{caption}
-\usepackage{empheq}
-\usepackage{mdframed}
-\usepackage[a4paper, left=1in,right=1in,top=1in,bottom=0.7in,footskip=0.6in,includeheadfoot]{geometry}
-\usepackage{tikz}
-\usepackage{pgfplots}
-\usepackage{hyperref}
-\usepackage{wrapfig}
-\usepackage{enumitem}
-\usepackage{lastpage}
-\usepackage{zref-totpages}
-\usepackage{float}
-
 %title
 \edef\mytitle{Precalculus}
 \edef\mysubtitle{Lesson 6: Complex Numbers}
 \edef\mydate{July 2, 2024}
 \edef\myauthor{Tyler Wang}
 
-\usetikzlibrary{calc, backgrounds,angles, quotes}
-\usepgfplotslibrary{polar}
+	%Configuration
+	\usepackage{amssymb}
+	\usepackage{amsmath, esint}
+	\usepackage{amsthm}
+	\usepackage{array}
+	\usepackage{longtable}
+	\usepackage{varwidth}
+	\usepackage{mathtools}
+	\usepackage{pdfpages}
+	\usepackage{fancyhdr}
+	\usepackage[figurename=Figure]{caption}
+	\usepackage{empheq}
+	\usepackage{mdframed}
+	\usepackage[a4paper, left=1in,right=1in,top=1in,bottom=0.7in,footskip=0.6in,includeheadfoot]{geometry}
+	\usepackage{tikz}
+	\usepackage{pgfplots}
+	\usepackage{hyperref}
+	\usepackage{wrapfig}
+	\usepackage{enumitem}
+	\usepackage{setspace}
+	\usepackage{multirow}
+	\usepackage{enumitem}
+	\usepackage{afterpage}
+	\usepackage{lastpage}
+	\usepackage{zref-totpages}
 
-\tikzset{
-    partial ellipse/.style args={#1:#2:#3}{
-        insert path={+ (#1:#3) arc (#1:#2:#3)}
-    }
-}
+	%Macros
+	\newcommand{\real}{\mathbb{R}}
+	\newcommand{\complex}{\mathbb{C}}
+	\newcommand{\rat}{\mathbb{Q}}
+	\newcommand{\nat}{\mathbb{N}}
+	\newcommand{\integ}{\mathbb{Z}}
+	\newcommand{\cpx}{\mathbb{C}}
 
-\setlength{\parskip}{10pt}
-\setlength{\parindent}{0pt}
+	\newcommand{\paren}[1]{\left(#1\right)}
+	\newcommand{\sbrak}[1]{\left[#1\right]}
+	\newcommand{\cbrak}[1]{\left\{#1\right\}}
 
-\fancyhf{}
-\fancyfoot[l]{\copyright \,\,\myauthor}
-\fancyhead[L]{\mysubtitle}
-\fancyhead[r]{\mytitle}
-\fancyfoot[c]{Page \thepage \hspace{1pt} of \ztotpages}
-\pagestyle{fancy}
+	\newcommand{\ceil}[1]{\left\lceil #1 \right\rceil}
+	\newcommand{\floor}[1]{\left\lfloor #1 \right\rfloor}
+	\newcommand{\abs}[1]{\left\lvert #1 \right\rvert}
+	\newcommand{\abrak}[1]{\left\langle #1 \right\rangle}
 
-\fancypagestyle{plain}{
-\fancyhf{}
-\fancyfoot[l]{\copyright \,\,\myauthor}
-\fancyfoot[c]{Page \thepage \hspace{1pt} of \ztotpages}
-\renewcommand{\headrulewidth}{0pt}}
+	\newcommand{\bra}[1]{\left\langle #1 \right\rvert}
+	\newcommand{\ket}[1]{\left\lvert #1 \right\rangle}
+	\newcommand{\braket}[2]{\left\langle #1 \left.\right\lvert #2 \right\rangle}
+	\newcommand{\ketbra}[2]{\left\lvert #1 \right\rangle\!\!\left\langle #2 \right\lvert}
 
-\newmdtheoremenv{lemma}{Lemma}
-\newmdtheoremenv{prop}{Proposition}
-\newmdtheoremenv{define}{Definition}
-\newmdtheoremenv{theorem}{Theorem}
-\newmdtheoremenv{cor}{Corollary}
+	\newcommand{\tens}[1]{\stackrel{\leftrightarrow}{#1}}
 
-\numberwithin{lemma}{section}
-\numberwithin{equation}{section}
-\numberwithin{define}{section}
-\numberwithin{prop}{section}
-\numberwithin{figure}{section}
-\numberwithin{theorem}{section}
-\numberwithin{cor}{section}
+	\newcommand{\jand}{\quad\text{and}\quad}
+	\newcommand{\jor}{\quad\text{or}\quad}
+	\newcommand{\for}{\quad\text{for }\,}
+	\newcommand{\comma}{,\quad}
 
-\newcounter{ex}[section]
-\newenvironment{ex}[0]{
+	\newcommand{\ieval}[2]{\Bigg|^{#2}_{#1}}
+	\newcommand{\deval}[1]{\bigg|_{#1}}
 
-	\refstepcounter{ex}
-    \subsection*{Example \theex .}
-    }
-    {
-    \hfill$\spadesuit$
-    \par
-    }
-\numberwithin{ex}{section}
+	\newcommand{\diff}[2]{\frac{d#1}{d#2}}
+	\newcommand{\pdiff}[2]{\frac{\partial#1}{\partial#2}}
+	%End Macros
 
-\def\real{\mathbb{R}}
-\def\complex{\mathbb{C}}
-\def\rat{\mathbb{Q}}
-\def\nat{\mathbb{N}}
-\def\integ{\mathbb{Z}}
-\def\mod#1{\mathbb{Z}_{#1}}
-\def\cpx{\mathbb{C}}
+	\usetikzlibrary{calc, backgrounds,angles, quotes}
+	\tikzset{
+	    partial ellipse/.style args={#1:#2:#3}{
+	        insert path={+ (#1:#3) arc (#1:#2:#3)}
+	    }
+	}
 
-\def\paren#1{\left(#1\right)}
-\def\sbrak#1{\left[#1\right]}
-\def\cbrak#1{\left\{#1\right\}}
 
-\def\ceil#1{\left\lceil #1 \right\rceil}
-\def\floor#1{\left\lfloor #1 \right\rfloor}
-\def\abs#1{\left\lvert #1 \right\rvert}
-\def\abrak#1{\left\langle #1 \right\rangle}
-\def\bra#1{\left\langle #1 \right\rvert}
-\def\ket#1{\left\lvert #1 \right\rangle}
-\def\braket#1#2{\left\langle #1 \left.\right\lvert #2 \right\rangle}
+	\fancyhf{}
+	\fancyfoot[l]{\copyright \,\,\myauthor}
+	\fancyhead[L]{\mysubtitle}
+	\fancyhead[r]{\mytitle}
+	\fancyfoot[c]{Page \thepage \hspace{1pt} of \ztotpages}
+	\pagestyle{fancy}
 
-\def\jand{\quad\text{and}\quad}
-\def\jor{\quad\text{or}\quad}
-\def\for{\quad\text{for }\,}
+	\fancypagestyle{plain}{
+	\fancyhf{}
+	\fancyfoot[l]{\copyright \,\,\myauthor}
+	\fancyfoot[c]{Page \thepage \hspace{1pt} of \ztotpages}
+	\renewcommand{\headrulewidth}{0pt}}
+	\setlength{\headheight}{15pt}
 
-\def\ieval#1#2{\Bigg|^{#2}_{#1}}
-\def\deval#1{\bigg|_{#1}}
+	\newcommand{\newmarkedtheorem}[1]{%
+	  \newenvironment{#1}
+	    {\renewcommand{\qedsymbol}{\ensuremath{\clubsuit}}\pushQED{\qed}\csname inner@#1\endcsname}
+	    {\popQED\csname endinner@#1\endcsname}%
+	  \newtheorem{inner@#1}%
+	}
 
-\def\diff#1#2{\frac{d#1}{d#2}}
-\def\pdiff#1#2{\frac{\partial#1}{\partial#2}}
+	\renewcommand\qedsymbol{$\blacksquare$}
+	\theoremstyle{plain}
 
-\def\sec#1{\section*{#1}\addtocounter{section}{1}\setcounter{subsection}{0}}
+	\newtheorem{theorem}{Theorem}
+	\newtheorem{lemma}[theorem]{Lemma}
+	\newtheorem{prop}[theorem]{Proposition}
+	\newtheorem{define}[theorem]{Definition}
+	\newtheorem{thm}[theorem]{Theorem}
+	\newtheorem{cor}[theorem]{Corollary}
 
-\hypersetup{
-    colorlinks=true,
-    urlcolor=blue,
-    linkcolor=magenta,
-    pdfborderstyle={/S/U/W 1}
-}
+	\theoremstyle{definition}
 
-\setlength\extrarowheight{3pt}
+	\newmarkedtheorem{remark}[theorem]{Remark}
+	\newmarkedtheorem{ex}[theorem]{Example}
 
-\title{\mytitle \\ [2ex] \Large \mysubtitle}
-\date{\small Modified \mydate}
-\author {Tyler Wang\thanks{
-\href{mailto:wangtyler123@gmail.com}{wangtyler123@gmail.com}}}
+	\newtheorem{exercise}{Exercise}
+
+	\numberwithin{equation}{section}
+	\numberwithin{theorem}{section}
+	\numberwithin{figure}{section}
+	\numberwithin{exercise}{section}
+
+	\newcommand{\optionalsection}[1]{
+		\section{#1\textsuperscript{$\S$}}
+		\customfootnotetext{$\S$}{Optional section: may be skipped without loss of continuity.}
+	}
+
+	\newenvironment{block}
+	{
+	    \begin{center}
+	    \begin{em}\small
+	    \begin{tabular}{p{0.9\linewidth}}
+	}{
+	    \end{tabular}
+	    \end{em}
+	    \end{center}
+	}
+
+	\hypersetup{
+	    colorlinks=true,
+	    urlcolor=blue,
+	    linkcolor=magenta,
+	    pdfborderstyle={/S/U/W 1}
+	}
+
+	\setlength\extrarowheight{3pt}
+	\setlength{\parskip}{5pt}
+
+	\setlength{\tabcolsep}{5pt}
+	\onehalfspacing
+	%End Configuration
+
+	\title{\mytitle \\ [2ex] \Large \mysubtitle}
+	\date{\small Modified \mydate}
+	\author {\myauthor
+		\thanks{\href{https://tylerwang.org}{tylerwang.org}}}
 
 \begin{document}
 \maketitle
 \section{Polor Coordinates}
 \subsection{Polar Plane}
-In this section, I'm going to try to introduce to you a new way of plotting. 
+In this section, I'm going to try to introduce to you a new way of plotting.
 Throughout your entire math career thus far, you may have only been exposed to one type of coordinate system, the cartesian plane.
 But here, we are going to explore ways we can plot things on a graph that don't have an $x$ or a $y$ coordinate.
 
@@ -141,20 +171,20 @@ But here, we are going to explore ways we can plot things on a graph that don't 
 		\draw[gray, thin, dashed] (O) circle (2);
 		\draw[gray, thin, dashed] (O) circle (3);
 		\draw (O) circle (4);
-		
+
 		\draw[thick, <->] (-5,0) -- (5,0) coordinate (P);
 		\draw[thick, <->] (0,-5) -- (0, 5);
-		
+
 		\node[above, fill=white] (a) at (4.4,0) {$0$};
 		\node[right, fill=white] (b) at (0,4.4) {$\frac{\pi}{2}$};
 		\node[above, fill=white] (c) at (-4.4,0) {$\pi$};
 		\node[right, fill=white] (d) at (0,-4.4) {$\frac{3\pi}{2}$};
-		
+
 		\node[fill=white] (e) at (3.2,3.2) {$\frac{\pi}{4}$};
 		\node[fill=white] (f) at (-3.2,3.2) {$\frac{3\pi}{4}$};
 		\node[fill=white] (g) at (-3.2,-3.2) {$\frac{5\pi}{4}$};
 		\node[fill=white] (h) at (3.2,-3.2) {$\frac{7\pi}{4}$};
-		
+
 		\draw[red,thick] (O) -- (2,3) node[midway, black, left] {$r$};
 		\filldraw (2,3) coordinate (A) circle (0.05);
 		\pic["$\theta$", draw, ->, black, thick, fill=blue, fill opacity=0.3, angle radius=1cm] {angle = P--O--A};
@@ -165,7 +195,7 @@ But here, we are going to explore ways we can plot things on a graph that don't 
 
 First, let's define polar coordinates. Like cartesian coordinates, a polar coordinate is also written as an ordered pair, except with the variables $r$ and $\theta$, where $r$ is the distance from the \textbf{pole}, or origin, and $\theta$ is the angle that a ray connecting the pole and point makes with the polar axis, as seen in figure \eqref{fig:polar-intro}.
 Normally we set the polar axis as the positive $x$ axis and let positive angles open counterclockwise.
-Since an angle of $2\pi$ is congruent to an angle of $0$, the consequence of using an angle to label a point is that there are infinitely many ordered pairs that we can use to represent a position. 
+Since an angle of $2\pi$ is congruent to an angle of $0$, the consequence of using an angle to label a point is that there are infinitely many ordered pairs that we can use to represent a position.
 For this reason, we typically restrict $\theta\in(-\pi,\pi]$. The choice we make here is arbitrary, so we could have chosen any interval we'd like, so long as every angle on the plane is reached.
 But even still, there are still multiple choices of ordered pairs that would label the point.
 Let's illustrate this fact in this next example.
@@ -182,20 +212,20 @@ Let's illustrate this fact in this next example.
 		\draw[gray, thin, dashed] (O) circle (2);
 		\draw[gray, thin, dashed] (O) circle (3);
 		\draw (O) circle (4);
-		
+
 		\draw[thick, <->] (-5,0) -- (5,0) coordinate (P);
 		\draw[thick, <->] (0,-5) -- (0, 5);
-		
+
 		\node[above, fill=white] (a) at (4.4,0) {$0$};
 		\node[right, fill=white] (b) at (0,4.4) {$\frac{\pi}{2}$};
 		\node[above, fill=white] (c) at (-4.4,0) {$\pi$};
 		\node[right, fill=white] (d) at (0,-4.4) {$\frac{3\pi}{2}$};
-		
+
 		\node[fill=white] (e) at (3.2,3.2) {$\frac{\pi}{4}$};
 		\node[fill=white] (f) at (-3.2,3.2) {$\frac{3\pi}{4}$};
 		\node[fill=white] (g) at (-3.2,-3.2) {$\frac{5\pi}{4}$};
 		\node[fill=white] (h) at (3.2,-3.2) {$\frac{7\pi}{4}$};
-		
+
 		\filldraw (1,1.732) circle (0.1) node[right, fill=white, xshift=0.2cm] {$\paren{2,\frac{\pi}{3}}$};
 		\draw[->,red,thick] (O) -- (0.92,1.632) coordinate (A);
 		\pic["$\frac{\pi}{3}$", draw, ->, black, thick, fill=blue, fill opacity=0.3, angle radius=1cm] {angle = P--O--A};
@@ -203,7 +233,7 @@ Let's illustrate this fact in this next example.
 	\caption{}
 	\label{fig:plot-point}
 	\end{figure*}
-	Because of the way, we defined $\theta$, we go around the circle once, so with a radius of $2$, $\frac{\pi}{2}$ is the only time we hit our desired point. 
+	Because of the way, we defined $\theta$, we go around the circle once, so with a radius of $2$, $\frac{\pi}{2}$ is the only time we hit our desired point.
 	But since there aren't any restrictions on $r$, we can allow $r$ to be negative. What this would mean is that instead of moving in the direction of the ray defined by the angle, we would go in the opposite direction.
 	\begin{figure*}[h]
 	\centering
@@ -215,20 +245,20 @@ Let's illustrate this fact in this next example.
 		\draw[gray, thin, dashed] (O) circle (2);
 		\draw[gray, thin, dashed] (O) circle (3);
 		\draw (O) circle (4);
-		
+
 		\draw[thick, <->] (-5,0) coordinate (Q) -- (5,0) coordinate (P);
 		\draw[thick, <->] (0,-5) -- (0, 5);
-		
+
 		\node[above, fill=white] (a) at (4.4,0) {$0$};
 		\node[right, fill=white] (b) at (0,4.4) {$\frac{\pi}{2}$};
 		\node[above, fill=white] (c) at (-4.4,0) {$\pi$};
 		\node[right, fill=white] (d) at (0,-4.4) {$\frac{3\pi}{2}$};
-		
+
 		\node[fill=white] (e) at (3.2,3.2) {$\frac{\pi}{4}$};
 		\node[fill=white] (f) at (-3.2,3.2) {$\frac{3\pi}{4}$};
 		\node[fill=white] (g) at (-3.2,-3.2) {$\frac{5\pi}{4}$};
 		\node[fill=white] (h) at (3.2,-3.2) {$\frac{7\pi}{4}$};
-		
+
 		\filldraw (1,1.732) circle (0.1) node[right, fill=white, xshift=0.2cm] {$\paren{2,\frac{\pi}{3}}$};
 		\draw[->,purple, thick] (O) -- (-2.5,-4.330) coordinate (A);
 		\draw[->,red,dashed] (O) -- (0.92,1.632);
@@ -292,7 +322,7 @@ I've mentioned that the complex numbers are not an ordered set, but similar to t
 	Let the absolute value, (modulus) be defined as
 	$$|z|=\sqrt{z\bar{z}}$$
 \end{define}
-Since we know that $z\bar{z}$ is always positive, from a previous lesson, so this value will always be positive. 
+Since we know that $z\bar{z}$ is always positive, from a previous lesson, so this value will always be positive.
 This definition, in reality, is arbitrary, there are many other ways we could have chosen to define this, as long as they satisfy a certain set of criteria. But we chose this definition since it allows our complex plane to be a plane and agrees with our other definitions of distance in a plane.
 
 Now we have a method of finding the distance from any complex number to the origin, we also need an operation that measures the angle a complex number makes with the positive real axis.
@@ -328,21 +358,21 @@ $$\text{cis}(\theta)=\cos(\theta)+i\sin(\theta)$$
 \end{ex}
 
  As you can see in the last example, $\text{cis}(\theta)$ sort of acts like an exponential, in the sense that multiplying them together will add its arguments. The reason for this is that it turns out $\text{cis}(x)$ is just how we can define the complex exponential.
- 
+
  \begin{theorem}[Euler's Theorem]
  	Let $\theta\in\real$, then
- 	$$e^{i\theta}=\cos(\theta)+i\sin(\theta)$$	
+ 	$$e^{i\theta}=\cos(\theta)+i\sin(\theta)$$
  \end{theorem}
  \begin{proof}
  	Postponed indefinitely.
  \end{proof}
- 
+
  Now, we see, we can write the polar form of a complex number as
  $$z=|z|e^{i\arg(z)}.$$
 Now with this, we can use the properties that we defined for exponentials to perform complex multiplication and division.
 
 \begin{theorem}
-	If $z\in\complex$, then 
+	If $z\in\complex$, then
 	$$\bar{z}=|z|e^{-i\arg(z)}$$
 \end{theorem}
 \begin{proof}
@@ -393,7 +423,7 @@ Now using complex exponentials, let's define root operations in terms of complex
 	In this example, I'm going to compute a complex logarithm in general. In terms of notation, we typically use $\ln(x)$ to define a complex natural logarithm, and in the context of complex numbers, we use $\log(z)$ to denote a complex natural logarithm.\footnote{We generally don't talk about logarithms for complex variables with arbitrary bases, since turns out, those are generally less useful, and can be replaced simply by dividing by the respective base.}
 	Thus since $z=re^{\i\theta}$, by using the definition of the logarithm and its properties:
 	$$\log(z)=\log(re^{\i\theta})=\ln(r)+\log(e^{\i\theta})=\ln(r)+i\theta.$$
-	Since 
+	Since
 	$$\theta\cong\theta +2\pi k \for k\in\integ,$$
 	it turns out $\log(z)$ is a multivalued functions outputting
 	$$\log(z)=\ln(r)+i\theta+2i\pi k.$$
@@ -413,7 +443,7 @@ Now using complex exponentials, let's define root operations in terms of complex
 	$$\text{Log}(z)=\ln(2)+\frac{5i\pi}{6}$$
 	or if we expand to all outputs of $\log(z)$,
 	$$\log(z)=\ln(2)+\frac{5i\pi}{6}+2i\pi k \for k\in\integ$$
-	
+
 \end{ex}
 \end{document}
 

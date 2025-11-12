@@ -183,7 +183,7 @@ Now, let's observe a few properties of the discrete exponent.
 When constructing the exponential, we wish to accomplish the following things:
 \begin{enumerate}
 	\item Make sure the result is continuous
-	\item Retain every property as outlined in proposition \eqref{prop:exponent-prop}.
+	\item To Retain every property as outlined in proposition \eqref{prop:exponent-prop}.
 	\item Have the resulting function restricted to the discrete exponent.
 \end{enumerate}
 In particular, we also would like to make sure this function is unique given some base.
@@ -215,16 +215,16 @@ To begin, let's examine a few basic properties of any function satisfying the de
 \begin{proof}
 	By property \eqref{def:exp-prop-add} of the exponential,
 	$$\phi(x)\cdot \phi(-x)= \phi(0)=(\phi(1))^0=1.$$
-	Thus we have $\phi(-x)=\frac{1}{\phi(x)}$ by algebric manipulation, thereby proving statement \eqref{prop:exp-prop-neg}.
-	
-	Statement \eqref{prop:exp-prop-unit-preserve} follows by rearranging statement \eqref{prop:exp-prop-neg} as follows: 
+	Thus, we have $\phi(-x)=\frac{1}{\phi(x)}$ by algebraic manipulation, thereby proving statement \eqref{prop:exp-prop-neg}.
+
+	Statement \eqref{prop:exp-prop-unit-preserve} follows by rearranging statement \eqref{prop:exp-prop-neg} as follows:
 	$$1=\phi(x)\phi(-x)=\phi(0).$$
-	
+
 	Statement \eqref{prop:exp-prop-multi} for positive integers follows immediately from property \eqref{def:exp-prop-add}.
 	Then statements \eqref{prop:exp-prop-neg} and \eqref{prop:exp-prop-unit-preserve} extend this to all integers.
 
-	
-	For statment \eqref{prop:exp-prop-non-zero}, suppose there exists $x \in \real$ such that $\phi(x)=0$.
+
+	For statement \eqref{prop:exp-prop-non-zero}, suppose there exists $x \in \real$ such that $\phi(x)=0$.
 	Observe
 	$$a=\phi(1)=\phi(x)\phi(1-x)=0\cdot \phi(1-x)=0$$
 	which is a contradiction since $a \neq 0$.
@@ -242,8 +242,8 @@ The subsequent proofs make heavy use of properties of $n$-roots and $n$-powers, 
 \begin{prop} \label{prop:basic-root-prop}
 	For any $a>0$, the following hold:
 	\begin{enumerate}
-		\item $a^n$ is an strictly increasing function if $a>1$
-		\item $a^n$ is an strictly decreasing function if $a<1$.
+		\item $a^n$ is a strictly increasing function if $a>1$
+		\item $a^n$ is a strictly decreasing function if $a<1$.
 		\item $a^n>n$ for every $n$. In particular, $a^n$ is unbounded from above.
 		\item $(\sqrt[m] a)^n = \sqrt[m] {a^n}$, for $m >0 $ and any integer $n$.
 		\item $\sqrt[mn] a=\sqrt[m] {\sqrt[n] a}$, for $m,n >0$.
@@ -284,12 +284,12 @@ The subsequent proofs make heavy use of properties of $n$-roots and $n$-powers, 
 \end{proof}
 
 \begin{prop} \label{prop:exp-Q-prop}
-	$[a]_\rat$ as defined in proposition \eqref{prop:exp-Q-ext} satifies the following:
+	$[a]_\rat$ as defined in proposition \eqref{prop:exp-Q-ext} satisfies the following:
 	\begin{enumerate}
 		\item $[a]_\rat(r)[a]_\rat(s)=[a]_\rat(r+s)$. \label{prop:exp-Q-add-prop}
 		\item $[[a]_\rat(r)]_\rat(s)=[a]_\rat(rs)$. \label{prop:exp-Q-multi-prop}
 		\item $[a]_\rat(r)>0$ for all $r \in \rat$. \label{prop:exp-Q-non-zero}
-		\item $[a]_\rat$ is strictly increasing for $a>1$, and stictly decreasing for $a<1$. \label{prop:exp-Q-inc-prop}
+		\item $[a]_\rat$ is strictly increasing for $a>1$, and strictly decreasing for $a<1$. \label{prop:exp-Q-inc-prop}
 		\item If $a\neq 1$, for every $x_1>x_0>0$, there exists some $r\in \rat$ such that $x_0 < [a]_\rat(r) < x_1$.\label{prop:exp-Q-connect}
 		\item $[a]_\rat$ is continuous.\label{prop:exp-Q-cont-prop}
 	\end{enumerate}
@@ -304,7 +304,7 @@ The subsequent proofs make heavy use of properties of $n$-roots and $n$-powers, 
 		&=[a]_\rat(r)[a]_\rat(s)
 	\end{align*}
 	where the second to last equality follows from proposition \eqref{prop:basic-root-prop}.
-	
+
 	Using the definition of $[a]_\rat$, and proposition \eqref{prop:basic-root-prop}, it follows that
 	\begin{align*}
 		[[a]_\rat(r)]_\rat(s)
@@ -315,23 +315,23 @@ The subsequent proofs make heavy use of properties of $n$-roots and $n$-powers, 
 			&=[a]_\rat(rs)
 	\end{align*}
 	which competes the proof for statement \eqref{prop:exp-Q-multi-prop}.
-	
+
 	The proof of statement \eqref{prop:exp-Q-non-zero} is similar to the proof of statement \eqref{prop:exp-prop-non-zero} in proposition \eqref{prop:exp-basic-property}.
-	$[a]_\rat$ follows immediatly by the definition of $n$-powers and $n$-roots ($n$-roots are always defined to be postive). 
-	
+	$[a]_\rat$ follows immediately by the definition of $n$-powers and $n$-roots ($n$-roots are always defined to be positive).
+
 	Suppose $a>1$.
 	If $r < s$, then $\frac{m}{n}<\frac{p}{q}$.
 	Since we assumed $n,q>0$, we have $mq < np$.
-	By proposition \eqref{prop:basic-root-prop}, we have $a^{mq} < a^{np}$, since for $a>1$, $a^k$ is an strictly increasing function for integers.
+	By proposition \eqref{prop:basic-root-prop}, we have $a^{mq} < a^{np}$, since for $a>1$, $a^k$ is a strictly increasing function for integers.
 	Taking the $nq$-root on both sides, we obtain $\sqrt[n] {a^m} < \sqrt[q] {a^p}$ since the inverse of an increasing function is increasing.
-	$\sqrt[n] {a^m} < \sqrt[q] {a^p}$ is equivilent to $[a]\paren{\frac{m}{n}} < [a] \paren{\frac{p}{q}}$.
+	$\sqrt[n] {a^m} < \sqrt[q] {a^p}$ is equivalent to $[a]\paren{\frac{m}{n}} < [a] \paren{\frac{p}{q}}$.
 	In the case $a<1$, the statement $[a]_\rat$ is decreasing follows from composing $[1/a]_\rat$ with the function $-r$.
 	This proves statement \eqref{prop:exp-Q-inc-prop}.
-	
+
 	We show that statement \eqref{prop:exp-Q-connect} is true in the case $a>1$.
 	If $x_1>x_0$, we have $\frac{x_1}{x_0}>1$.
 	In particular, there exists some $n\in \nat$ such that $a < \paren{\frac{x_1}{x_0}}^n$ (since exponents are unbounded from above and increasing for $a>1$ by proposition \eqref{prop:basic-root-prop}).
-	Therefore ${x_1}^n > a {x_0}^n$.
+	Therefore, ${x_1}^n > a {x_0}^n$.
 	Since the set
 	$$\{k \in \nat \mid a^k > {x_0}^n\}$$
 	is non-empty (since exponents are unbounded from above and increasing for $a>1$) and a subset of $\nat$, a well-ordered set, there exists a least element, which we call $m$.
@@ -341,9 +341,9 @@ The subsequent proofs make heavy use of properties of $n$-roots and $n$-powers, 
 	Since the inverses of strictly increasing functions are increasing and $a^k$ is a strictly increasing function, taking the $n$-root of the previous inequality gives
 	$$x_0<\sqrt[n] {a^m} = [a]_\rat\paren{\frac{m}{n}}<x_1.$$
 	The case when $a<1$ follows from the $a>1$ case and is left as an exercise.
-	
+
 	To prove continuity, fix any $r_0\in\rat$,\footnote{Remember every point $\rat$ is a limit point $\rat$, so we must check every point.} we prove the limit of $[a]_\rat$ at $r_0$ is exactly $[a]_\rat(r_0)$.
-	fix some $\epsilon>0$.
+	Fix some $\epsilon>0$.
 	Then following statement \eqref{prop:exp-Q-connect} there exists $r_-,r_+$ such that
 	$$[a]_\rat(r_-) \in ([a]_\rat(r_0)-\epsilon, [a]_\rat(r_0)) \jand [a]_\rat(r_+)\in ([a]_\rat(r_0), [a]_\rat(r_0) + \epsilon).$$
 	Since $[a]_\rat$ is increasing by statement \eqref{prop:exp-Q-inc-prop}, we have $r_- < r_0 < r_+$.
@@ -369,9 +369,9 @@ Since every exponential with base $a$ restricts to $[a]_\rat$ on $\rat$, it foll
 	$[a]$ as given in equation \eqref{eq:exp-construction} is an exponential with base $a$.
 \end{prop}
 \begin{proof}
-	$[a]$ is clearly continuous and $[a](1)=a$ follows immediatly from the definition.
+	$[a]$ is clearly continuous and $[a](1)=a$ follows immediately from the definition.
 	It suffices to prove property \eqref{def:exp-prop-add}.
-	
+
 	For any $x,y\in \real$, since $[a]$ is continuous, the limit
 	$$\lim_{u \to x} \lim_{v \to y} [a](u+v)$$
 	exists and is equal to
@@ -394,7 +394,7 @@ In addition to the properties listed in \eqref{prop:exp-basic-property}, we have
 \begin{prop} \label{prop:exp-extend-properties}
 	For $a >0$, the exponential $[a]$ has the following:
 	\begin{enumerate}
-		\item $[a]$ is stictly increasing if $a>1$, stictly decreasing if $a<1$ and constant if $a=1$.
+		\item $[a]$ is strictly increasing if $a>1$, strictly decreasing if $a<1$ and constant if $a=1$.
 		\item $[a]$ is unbounded from above.
 		\item $[[a](x)](y)=[a](xy)$.
 	\end{enumerate}
@@ -420,16 +420,16 @@ We will also, from this point on, move to the standard notation for an exponenti
 
 \subsection{Inverse of Exponential (Logarithm)}
 \begin{prop} \label{prop:exp-range}
-	For any $a$, the exponetial with base $a$ has the range $(0,\infty)$.
+	For any $a$, the exponential with base $a$ has the range $(0,\infty)$.
 \end{prop}
 \begin{proof}
 	By proposition \eqref{prop:exp-extend-properties}, we have $a^x$ is unbounded from above, hence for every $M>0$, there exists some $x$ such that $M<a^x$.
-	
+
 	Then fix any $N>0$, by the above characterization, there exists some $-x\in \real$ such that $\frac{1}{N} < a^{-x}$.
-	Since $\frac{1}{N}$ is postive, we have $\frac{1}{a^{-x}} = a^x < N$.
+	Since $\frac{1}{N}$ is positive, we have $\frac{1}{a^{-x}} = a^x < N$.
 	To summarize, for every $N>0$, there exists $x\in \real$ such that $a^x<N$.
 	We will use this characterization to show $a^x$ maps onto $(0,\infty)$.
-	
+
 	We know $a^x$ maps into $(0,\infty)$ by proposition \eqref{prop:exp-basic-property}, thus it suffices to show this mapping is surjective.
 	Fix any $y \in (0,\infty)$.
 	Since $a^x$ is unbounded from above, there exists $x_+$ such that $y<a^{x_+}$.
@@ -463,7 +463,7 @@ Observe, the asymptotic behavior that we observed before slightly changed and in
 The plot clearly indicates that $\log_a(x)$ is also a continuous function, a non-trivial fact given that not every continuous bijection admits a continuous inverse.
 I will leave the analytical proof of this fact as an exercise for our readers.\footnote{
 	For interested readers, this fact can be derived from the fact that $a^x$ is an open mapping, which, in the case of real maps, is a map where the image of every open interval is open.
-	The fact that $a^x$ is an open map follows immediately from the fact the fact $a^x$ is strictly increasing (decreasing) and by the intermediate value theorem.
+	The fact that $a^x$ is an open map follows immediately from the fact $a^x$ is strictly increasing (decreasing) and by the intermediate value theorem.
 	Thus, it remains to show these open mapping conditions imply continuity of the inverse (For a bonus, show the converse is true, namely if a continuous bijection has a continuous inverse, then it's an open mapping).}
 
 Now, let's look at some of its other properties.
@@ -480,15 +480,15 @@ Now, let's look at some of its other properties.
 	$$a^{\log_a(xy)}=xy=a^{\log_a(x)}a^{\log_a(y)}=a^{\log_a(x)+\log_a(y)}.$$
 	Then taking the logarithm of both sides gives
 	$$\log_a(a^{\log_a(xy)})=\log_a(a^{\log_a(x)+\log_a(y)})$$
-	$$\log_a(xy)=\log_a(x)+\log_a(y).$$
+	$$\log_a(xy)=\log_a(x)+\log_a(y),$$
 	hence proving (1).
 
 	Then since
 	$$a^{y\log_a(x)}=x^y=a^{\log(x^y)}$$
 	Taking the logarithm of both sides:
 	$$\log_a(a^{y\log_a(x)})=\log_a(a^{\log(x^y)})$$
-	$$y\log_a(x)=\log(x^y).$$
-	Hence proving (2).
+	$$y\log_a(x)=\log(x^y),$$
+	hence proving (2).
 \end{proof}
 
 \subsection{Change of Basis}
@@ -537,7 +537,7 @@ Because of how fundamental $e^x$ is in the context of exponentials, we give it a
 The advantage of this notation is that sometimes, with longer arguments, it's a little easier to read, but it also highlights that although similar, the $\real$ exponential and the discrete version are distinct mathematical operations.
 Additionally, we also define a special function for $\log_e(x)$ called $\ln(x)$, or natural logarithm (or \textit{logarithme naturel}  in French).
 
-\section{Trignometry}
+\section{Trigonometry}
  Now we have come to everyone's favorite topic, trigonometry.
  I've included exponentials and trigonometry in the same lesson since they are actually inherently connected.
  In the next lesson, we will see a formula that relates these seemingly distant concepts in a remarkably beautiful way.
@@ -580,9 +580,9 @@ $$\text{sec}(x)=\frac{1}{\cos(x)}
 \for x\in \cbrak{x\in\real: x\neq \frac{\pi}{2}+\pi n, \:
 \forall n\in\nat}$$
 
-Then to find the image, immediatly from the definition \eqref{def:trigdefine}, $|\sin(x)|,|\cos(x)|\le 1$.
+Then to find the image, immediately from the definition \eqref{def:trigdefine}, $|\sin(x)|,|\cos(x)|\le 1$.
 Since the values of $-1$ and $1$ are obtained on $\sin(x)$ and $\cos(x)$, it follows from the intermediate value theorem that the range of $\sin(x)$ and $\cos(x)$ is $[-1,1]$.
-Since $\csc(x)$ and $\text{sec}(x)$ are just the reciprocals of $\sin(x)$ and $\cos(x)$ respectivly, immediatly we get the range of these functions is the compound interval $[-\infty,-1]\cup[1,\infty]$.
+Since $\csc(x)$ and $\text{sec}(x)$ are just the reciprocals of $\sin(x)$ and $\cos(x)$ respectively, immediately we get the range of these functions is the compound interval $[-\infty,-1]\cup[1,\infty]$.
 
 Finding the image of $\tan(x)$ and $\cot(x)$ can be a bit more tricky, but we will leverage a computer to help us do this. Using figures \eqref{fig:tan} and \eqref{fig:cot}, we see the image of our two functions is $\real$.
 \begin{figure}[h]
@@ -635,10 +635,10 @@ $\tan(x)$, $\cot(x)$ are $\pi$ periodic
 \end{theorem}
 \begin{proof}
 	Let's prove this statement first,  only for the domain $[-\pi,\pi]$.
-	If $\theta \in [-\pi,\pi]$, negating $\theta$ corisponds to a reflection of over the $x$-axis.
+	If $\theta \in [-\pi,\pi]$, negating $\theta$ corresponds to a reflection of over the $x$-axis.
 	Therefore, definition \eqref{def:trigdefine} gives
 	$$\sin(x)=-\sin(-x).$$
-	
+
 	By theorem \eqref{thm:perod},
 	$$\sin(x+2\pi k)=\sin(x)=-\sin(-x)=-\sin(-x+2\pi m).$$
 	If we let $m = -k$, we obtain
@@ -665,14 +665,14 @@ $\tan(x)$, $\cot(x)$ are $\pi$ periodic
 \end{proof}
 
 
-\subsubsection{Pythagorean-esque Identies}
+\subsubsection{Pythagorean-esque Identities}
 \begin{theorem}[Pythagorean Identity]
 \label{thm:pydi}
 Let $x\in\real$, then
 $$\cos^2(x)+\sin^2(x)=1$$
 \end{theorem}
 \begin{proof}
-	By definition \eqref{def:trigdefine}, the ordered pair $(\cos(x),\sin(x))$ lies on a unit circle. Therefore since a circle satisfies the relation
+	By definition \eqref{def:trigdefine}, the ordered pair $(\cos(x),\sin(x))$ lies on a unit circle. Therefore, since a circle satisfies the relation
 	$$x^2+y^2=1$$
 	it immediately follows that
 	$$\cos^2(x)+\sin^2(x)=1$$
@@ -705,7 +705,7 @@ $$\csc^2(x)=1+\cot^2(x)$$
 	$$1+\cot^2(x)=\csc^2(x).$$
 \end{proof}
 
-\subsubsection{Angle Identies}
+\subsubsection{Angle Identities}
 \begin{theorem}
 \label{thm:sumcos}
 For $\alpha,\beta\in\real$,
@@ -750,11 +750,11 @@ $$\sin(\alpha-\beta)=\sin(\alpha)\cos(\beta)-\cos(\alpha)\sin(\beta)$$
 		\sin(2\theta)&=2\sin(\theta)\cos(\theta) \\
 		\cos(2\theta)&=\cos^2(\theta)-\sin^2(\theta)
 	\end{align*}
-	
+
 	\label{cor:doubleangle}
 \end{cor}
 \begin{proof}
-	Trivial by theormes \eqref{thm:sumcos} and \eqref{thm:sumsin}.
+	Trivial by theorems \eqref{thm:sumcos} and \eqref{thm:sumsin}.
 \end{proof}
 
 \begin{cor}[Half angle]
@@ -763,7 +763,7 @@ $$\sin(\alpha-\beta)=\sin(\alpha)\cos(\beta)-\cos(\alpha)\sin(\beta)$$
 	$$\cos\paren{\frac{\theta}{2}}=\pm\sqrt{\frac{1+\cos(\theta)}{2}}$$
 \end{cor}
 \begin{proof}
-	Using corrolary \eqref{cor:doubleangle} and letting $x=\frac{\theta}{2}$ gives
+	Using corollary \eqref{cor:doubleangle} and letting $x=\frac{\theta}{2}$ gives
 	\begin{equation} \label{eq:half-angle-eq1}
 		\cos(x)=\cos^2\paren{\frac{x}{2}}-\sin^2\paren{\frac{x}{2}}.
 	\end{equation}
@@ -772,7 +772,7 @@ $$\sin(\alpha-\beta)=\sin(\alpha)\cos(\beta)-\cos(\alpha)\sin(\beta)$$
 		\cos^2(\frac{x}{2})+\sin^2(\frac{x}{2})	&=1 \\
 		\sin^2\paren{\frac{x}{2}}				&=1-\cos^2\paren{\frac{x}{2}}.
 	\end{align*}
-	Therefore by substitution into equation \eqref{eq:half-angle-eq1},
+	Therefore, by substitution into equation \eqref{eq:half-angle-eq1},
 	$$\cos(x)=\cos^2\paren{\frac{x}{2}}-\paren{1-\cos^2\paren{\frac{x}{2}}}.$$
 	Thus,
 	\begin{align*}
@@ -781,7 +781,7 @@ $$\sin(\alpha-\beta)=\sin(\alpha)\cos(\beta)-\cos(\alpha)\sin(\beta)$$
 	\end{align*}
 	Then again by theorem \eqref{thm:pydi},
 	$$\cos^2\paren{\frac{x}{2}}=1-\sin^2\paren{\frac{x}{2}}.$$
-	By subsitution into equation \eqref{eq:half-angle-eq1}
+	By substitution into equation \eqref{eq:half-angle-eq1}
 	\begin{align*}
 		\cos(x)					&=\paren{1-\sin^2\paren{\frac{x}{2}}}-\sin\paren{\frac{x}{2}} \\
 		\cos(x)-1				&=-2\sin\paren{\frac{x}{2}} \\
@@ -921,7 +921,7 @@ Using the identity that we proved in exercise \eqref{ex:sumtan}, we actually can
  		\filldraw (1.41,1.41) coordinate (A) circle (0.05) node[above, shift={(0,0.2)}] {$A$};
  		\node[below, shift={(0.2,-0.1)}] at (2,0) {$B$};
  		\node[below, shift={(0,-0.1)}] at (1.41,0) {$C$};
- 			
+
  		\draw[thick, black, dashed] (A) -- (1.41,0);
  		\draw[thick, purple, thick] (A) -- (2,0);
 
@@ -941,7 +941,7 @@ This identity, shown in example \eqref{ex:trig-cont-ident}, will in fact allow u
 To do so, we still need an additional estimate of $\sin(x)$ derived from its geometric properties.
 
 Let $\theta \in \sbrak{0, \frac{\pi}{2}}$.
-In figure \eqref{fig:trig-estimate-plot}, given that $\odot \, O$ is the unit circle, then the lenght of $\overline {AC}$ is $\sin\theta$.
+In figure \eqref{fig:trig-estimate-plot}, given that $\odot \, O$ is the unit circle, then the length of $\overline {AC}$ is $\sin\theta$.
 Therefore, the area of $\triangle AOB$ is simply $\frac{1}{2}\overline{AC}$.
 Similarly, observe the sector $AOB$ has area $\frac{\theta}{2}$.
 Since the area of the sector completely encloses the area of the triangle, we have
@@ -950,15 +950,15 @@ after multiplying both areas by two.
 Since
 $$\sin\theta \le 1 \le \frac{\pi}{2},$$
 for $\theta \ge \frac{\pi}{2}$, we have the same estimate.
-Since $\sin\theta$ is odd, we have
+$\sin\theta$ is odd, thus we have
 $$\theta \le \sin\theta$$
 for when $\theta < 0$.
-Thus, we have the estimate
+All together, we have the estimate
 $$|\sin\theta| \le \theta.$$
 Now we are ready to prove continuity.
 
 \begin{theorem}
-	$\sin(x)$ are continuous functions.	
+	$\sin(x)$ are continuous functions.
 \end{theorem}
 \begin{proof}
 	We show $\lim_{x \to x_0} \sin(x) = \sin(x_0)$.
@@ -972,24 +972,15 @@ Now we are ready to prove continuity.
 \end{proof}
 
 \begin{cor}
-	$\cos(x)$ is continuous.	
+	$\cos(x)$ is continuous.
 \end{cor}
 \begin{proof}
 	Immediate from the formula $\cos(x) = \sin\paren{\frac{\pi}{2}-x}$ from corollary \eqref{cor:sincomp}.
 \end{proof}
 \begin{cor}
-	All other trigonometric functions are continuous on their respective domains.	
+	All other trigonometric functions are continuous on their respective domains.
 \end{cor}
 \begin{proof}
-	Immediate from the definition of these functions.
+	Immediate from the definition of these functions and properties of the limit operation.
 \end{proof}
 \end{document}
-
-
-
-
-
-
-
-
-

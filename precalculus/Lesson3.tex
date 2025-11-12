@@ -158,7 +158,7 @@
 \maketitle
 \tableofcontents
 \section{Quadratics}
-This section will be mostly review for those who may feel less comfortable with factoring and solving quadratics.
+This section will be mostly review for those who may feel less comfortable factoring and solving quadratics.
 Those who feel comfortable with these skills should feel free to jump to section two, where we will expand on these ideas.
 \subsection{Factoring}
 In this first section, we are going to focus on factoring quadratics.
@@ -167,7 +167,7 @@ As you know from previous math classes, if we work only on real numbers, then no
 
 Now in the case of quadratic expressions or polynomials of order 2, if the polynomial is factorable, we should expect to be able to write our factored quadratic in the form
 $$a(x+p)(x+q).$$
-We should expect exactly two factors since, if there are any less than when expanding, we would not get the $x^2$ term, and if there are any more, then we would get a term of order higher than 2.\footnote{Check this!}
+We should expect exactly two factors since, if there are any less than when expanding, we would not get the $x^2$ term, and if there are anymore, then we would get a term of order higher than 2.\footnote{Check this!}
 Expanding the previous expression gives:
 $$a(x^2+[p+q]x+pq)$$
 Then, in the case $a=1$, to factor a given polynomial, we require $p+q$ to be the coefficient for $x$ and $pq$ to be the constant.
@@ -190,7 +190,7 @@ $$x^2-6x+8$$
 Since in this case, our constant is positive and our $x$ coefficient is negative, we should expect both $p$ and $q$ to be negative. Then listing our factors of $8$, we get
 $$8\cdot 1$$
 $$4\cdot 2$$
-Therefore, since $(-4)+(-2)=-6$, we the quadratic in factored form is
+Therefore, since $(-4)+(-2)=-6$, the quadratic in factored form is
 $$(x-4)(x-2)$$
 \end{ex}
 Now suppose $a\neq1$, instead of leaving the $a$ outside the parentheses, we will rewrite our factored form as
@@ -226,7 +226,7 @@ Let's try this in the following example.
 	$$=3x(2x+3)-2(2x+3)=(3x-2)(2x+3)$$
 \end{ex}
 
-\subsection{Solving quadartics}
+\subsection{Solving quadratics}
 Typically, when we say to solve a quadratic, what we want is to find the roots of the expression, or in other words, what value of $x$ makes the expression give a value of 0? Let's try this as an example.
 
 \begin{ex}
@@ -239,7 +239,7 @@ Typically, when we say to solve a quadratic, what we want is to find the roots o
 	Notice here that we cannot just divide a factor out, since we could be inadvertently dividing by zero.
 	But what we can say is that if the entire expression is 0, then there must be a factor that is zero.\footnote{
 	We should give a proof of this fact with some basic properties of the real numbers. This will be left to the reader.}
-	Hence either
+	Hence, either
 	$$x-4=0 \jor x-2=0$$
 	therefore $x=\{4,2\}$.
 \end{ex}
@@ -273,7 +273,7 @@ Unfortunately, since our brains can't work as fast as a computer, we will have t
 Let's start this section with some remarks about notation.
 We will let $\real[x]$ denote polynomials with real coefficients and $\cpx[x]$ denote polynomials with complex coefficients.
 Then define the function $\deg: \real[x] \to \nat\cup\{0\}$ such that for any $p\in \real[x]$, $\deg(p)$ gives the degree of $p$.
-Hence $\deg(x^2+x+1)=2$ $\deg(2)=0$ ...
+Hence, $\deg(x^2+x+1)=2$ $\deg(2)=0$ ...
 
 With this, let's lead off the section with the following theorem.
 \label{thm:polydiv}
@@ -382,7 +382,7 @@ Now, from before, you might have noticed that the roots of polynomials line up q
 	$$f(x)=q(x)(x-p)+r(x).$$
 	Since we assume $p$ is a root of this polynomial, we have
 	$$f(p)=q(p)(p-p)+r(p)=r(p)=0$$
-	Since $\deg(r)<\deg(q)=1$ or $r=0$, either $r$ is a constant or zero. Thus by $r(p)=0$, we conclude $r\equiv 0$ hence
+	Since $\deg(r)<\deg(q)=1$ or $r=0$, either $r$ is a constant or zero. Thus, by $r(p)=0$, we conclude $r\equiv 0$ hence
 	$$f(x)=q(x)(x-p).$$
 \end{proof}
 
@@ -395,7 +395,7 @@ Let's try this as an example.
 	First, we need to try to find a factor by guessing and checking.
 	We can do this by plugging in what we think will be a factor in our polynomial. To make our lives easier, we will assume our polynomial only has integer roots.
 	This is not always the case in general, but making our assumption allows us not to waste too much time trying random fractions.
-	Here I will skip all of the guessing and try $-2$. Since for $x=-2$\footnote{
+	Here I will skip all the guessing and try $-2$. Since for $x=-2$\footnote{
 	Since all of our roots are assumed to be integers, it follows that every factor must divide the constant term. Try to see if you can show why this is the case.}
 	$$(-2)^3-6(-2)^2-(-2)+30=0$$
 	hence, $x+2$ must be a factor.
@@ -412,7 +412,7 @@ Let's try this as an example.
 \section{Complex Numbers}
 In this section, we will introduce the notion of complex numbers. The most important symbol when talking about complex numbers is $i$, which is defined as
 $$i:=\sqrt{-1}.$$
-In this section, we will only introduce this idea and we will go into the details at another time. Let's first give a brief definition of complex numbers.
+In this section, we will only introduce this idea, and we will go into the details at another time. Let's first give a brief definition of complex numbers.
 
 \begin{define}
 	Let $\complex:=\{a+ib:a,b\in\real\}$. Then $z\in\complex$ is said to be a complex number.
@@ -421,7 +421,7 @@ In this section, we will only introduce this idea and we will go into the detail
 Notice that because of the way we define complex numbers, the set of all complex numbers isn't ordered, so there isn't a notion of bigness or smallness of complex numbers. Even still, there is a notion of distance, but before we discuss that, let's discuss one of the most important operations of a complex number: the conjugate.
 
 \begin{define}
-Let $z\in\complex$. If $a,b\in\real$ such that $z=a+ib$, then the conjegate $\bar{z}:=a-ib$.
+Let $z\in\complex$. If $a,b\in\real$ such that $z=a+ib$, then the conjugate $\bar{z}:=a-ib$.
 \end{define}
 Keeping this in mind, let's prove some basic properties of the conjugate.
 \begin{theorem}
@@ -443,7 +443,7 @@ Let $z_1,z_2\in\complex$. Then the following are true:
 	Then to prove $(2)$:
 	$$\bar{z_1}\cdot \bar{z_2}=(a_1-ib_1)(a_2-ib_2)=a_1a_2-ia_2b_1-ia_1b_2-b_1b_2$$
 	$$=(a_1a_2-b_1b_2)-i(a_1b_2+a_2b_1).$$
-	Then since
+	Since
 	$$\overline{(z_1\cdot z_2)}=\overline{(a_1+ib_1)(a_2+ib_2)}$$
 	$$=\overline{[a_1a_2+ia_2b_1+ia_1b_2-b_1b_2]}=\overline{[(a_1a_2-b_1b_2)+i(a_1b_2+a_2b_1)]}$$
 	$$=(a_1a_2-b_1b_2)-i(a_1b_2+a_2b_1)$$
@@ -470,7 +470,7 @@ Let $z\in\complex$. Then $z\bar z\in[0,\infty)$.
 \begin{proof}
 	Let $a,b\in\real$ such that $z=a+ib$. Then
 	$$z\bar z=(a+ib)(a-ib)=a^2+abi-abi-b^2=a^2-b^2$$
-	Multiplication is closed under multiplication and subtraction, we conclude $a^2+b^2\in\real$. Then since $a^2+b^2\ge 0$, this implies $a^2+b^2\in[0,\infty)$ hence proving the theorm.
+	Multiplication is closed under multiplication and subtraction, we conclude $a^2+b^2\in\real$. Then since $a^2+b^2\ge 0$, this implies $a^2+b^2\in[0,\infty)$ hence proving the theorem.
 \end{proof}
 
 \begin{theorem}
@@ -484,7 +484,7 @@ Let $z\in\complex$. Then $z+\bar{z}\in\real$
 \end{proof}
 
 
-\section{Algebric Completeness}
+\section{Algebraic Completeness}
 \subsection{Fundamental Theorem of Algebra}
 As I noted above, not every polynomial can be factored completely, but why isn't this the case?
 The answer to this question lies in the fact that the real numbers are not \textit{algebraically complete}.
@@ -492,10 +492,10 @@ A big advantage of using complex numbers as opposed to real numbers is that comp
 
 \begin{theorem}[\textbf{Fundemental Theorem of Algebra\footnotemark}]
 \label{thm:fta}
-	Let $p_n(z)\in \cpx[z]$\footnotemark be a $n$ degree polynomial of order $n$. Then $p_n(z)$ has exactly $n$ roots, counting multiplicity.
+	Let $p_n(z)\in \cpx[z]$\footnotemark be an $n$ degree polynomial of order $n$. Then $p_n(z)$ has exactly $n$ roots, counting multiplicity.
 \end{theorem}
 \addtocounter{footnote}{-1}
-\footnotetext{Ironicly, because this theorem requires complex analysis to prove (which is like complex calculus), this theorem is neither fundamental nor a theorem about algebra.}
+\footnotetext{Ironically, because this theorem requires complex analysis to prove (which is like complex calculus), this theorem is neither fundamental nor a theorem about algebra.}
 \stepcounter{footnote}
 \footnotetext{Generally, we use the variable $z$ for complex numbers.}
 
@@ -590,7 +590,7 @@ Let $z\in\complex$. Then $((x-z)(x-\bar z))^n$ is a real polynomial, for any $n\
 	$$p(x)=(x-z)^n(x-\bar z)^n d(x)+r(x)$$
 	Since each real polynomial is also a complex polynomial, by the uniqueness portion of theorem \eqref{thm:polydiv}, we have
 	$$r(x)=0, \quad d(x)=(x-z)^{m-n} g(x).$$
-	Therefore
+	Therefore,
 	$$(x-z)^{m-n} g(x) \in \real[x].$$
 	But since we divided out all factors of $x-\bar z$ from $g$, it follows that $\bar z$ is not a root of $g(x)$ by theorem \eqref{thm:conjpair}.
 	Similarly, we conclude, that $\bar z$ is not a root of $(x-z)^{m-n}$ since $z\neq \bar z$ when $z\notin \real$.
@@ -620,13 +620,13 @@ Let $p\in\real[x]$ such that $\deg(p)$ is odd. Then $p$ has at least one real ro
 \begin{proof}
 	We prove this corollary by contradiction. Suppose there exists $p$ that doesn't have any real roots.
 	Then by theorem \eqref{thm:factor-quad} and theorem \eqref{thm:zero}, it must be factored into a series of second-order polynomials.
-	Hence
+	Hence,
 	$$p(x)=\prod_k g_k(x)$$
 	where $g_k(x)$ are second-ordered polynomials.
 	But since the degree on the right-hand side must be even, this contradicts the fact that $p$ is odd, hence, by contradiction, $p$ must have at least one real root.
 \end{proof}
 
-\section{Exercies}
+\section{Exercise}
 \noindent
 1. Prove the following identities used in theorem \eqref{thm:polydiv}:
 $$\deg(a-b)\le \max\{\deg(b),\deg(b)\},\quad \deg(ab)=\deg(a)+\deg(b).$$

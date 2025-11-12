@@ -161,16 +161,16 @@
 Often in mathematics, we like to group abstract things, also known as mathematical objects, into sets. A mathematical object is, simply put, a \textit{thing} we like to talk about in math, such as functions, numbers, matrices, other sets, etc.
 Although seemingly simple, these sets are incredibly powerful, so powerful in fact that most modern mathematics today is built on the backbones of set theory.
 For our purposes here, we only need a very elementary understanding of set theory, as a deeper dive, though fascinating, can be very confusing, difficult, and at times controversial.\footnote{This controversy mostly arises from the infamous \href{https://en.wikipedia.org/wiki/Axiom_of_choice}{axiom of choice}.
-Simply put, given any set of sets that are not empty, one can always find a way to way to map a child set to an element in that child set. Though seemingly simple, due to its complications with infinite sets, it has deep consequences in all mathematics and how we deal with infinities in the universe.}
+Simply put, given any set of sets that are not empty, one can always find a way to map a child set to an element in that child set. Though seemingly simple, due to its complications with infinite sets, it has deep consequences in all mathematics and how we deal with infinities in the universe.}
 \subsection{Notation}
 Before we move any further, we should get some basic notation out of the way.
-Below is a list of all of the important symbols that we will be using in this class:
+Below is a list of all the important symbols that we will be using in this class:
 \begin{center}
 	\begin{longtable}{| c | m{8cm} |}
 		\hline
 		Symbol & Meaning \\
 		\hline
-		$\in,\notin$   & in and not in respectively. Typically to denote that an object belongs or doesn't belong to a set \\
+		$\in,\notin$   & in and not in respectively. Typically, to denote that an object belongs or doesn't belong to a set \\
 		\hline
 		$\subset, \subseteq$ & proper subset, subset, we discuss the distinction later \\
 		\hline
@@ -272,8 +272,8 @@ An important note here is that a set doesn't contain duplicates of an object; th
 Then the intersect is the region where every element $x\in A\cap B$ is both in $A$ \textbf{and} $B$.\footnote{The intersect also bears stark resemblance with an elementary operation, which, as you may have assumed, is multiplication.
 We won't get into the details here, but just understand that it follows many of the same properties as multiplication.}
 I emphasize the "and" and "or" parts of the previous statements since I believe it's important to see the relationship between these very mathematical ideas and the words we use in our everyday lives.\footnote{
-It is important to note, however, that the or used in this case is slightly different from the or we use in everyday life.
-This is because we tend to deal more with exclusive or, where the or we deal with in math is non-exclusive.
+It is important to note, however, that the or used in this case is slightly different from the "or" we use in everyday life.
+This is because we tend to deal more with exclusive or, where the "or" we deal with in math is non-exclusive.
 If you have no idea what I'm talking about, then forget that you even read this section.}
 
 Now, with this intuition of these operations, we can move on to rigorously define them as follows:
@@ -313,7 +313,7 @@ This might still seem confusing, but typically, colons in math can be read as \t
 \textit{The set S is equivalent to the set of all real ordered pairs given they satisfy $x^2+y^2=1$}.
 This notation is known as set builder notation since, in essence, we are building a set based on a given set of conditions.
 Sometimes, we like to be a bit more specific and explicitly declare that $(x,y)$ is an ordered pair and write
-$$S=\{(x,y)\in \real^2 : x^2+y^2=1\}.$$
+$$S=\{(x,y)\in \real^2 : x^2+y^2=1\},$$
 where $\real^2$ is the set of all real ordered pairs.
 
 We then draw our attention to an alternative way to define sets in real numbers, which is interval notation. Generally, in precalc, you will see this more often, as it is a quick and easy way to define a set on a given interval. Let's say we are trying to define a set $S$, where $S$ is the set of all reals between 2 and 5, excluding the values 2 and 5 (the endpoints). Then we write
@@ -329,7 +329,7 @@ $$[1,5)\cap (3,\infty)=\{x : 3 < x < 5\}.
 \footnote{When we deal with infinity, always use $()$ since infinity is not in the real numbers, and hence we cannot include $\infty$ in our set.}$$
 
 \subsection{Very Important Sets}
-Certain sets in mathematics are so important that we give them a special symbol
+Certain sets in mathematics are so important that we give them a special symbols.
 \begin{center}
 	\begin{longtable}{| c | m{8cm} |}
 		\hline
@@ -364,7 +364,7 @@ But before we get to the implications, let's first examine what exactly this wel
 
 Let's start by looking at the natural numbers. Our first and most obvious observation is that the natural numbers are \textit{totally ordered},
 meaning you can take any two elements of the set and declare one is larger than the other, given they are not equal.
-Then, looking further, we realize by taking any subset of the natural numbers, finite or infinite, as long as this set isn't empty, there must be a least element since no matter what is in any of these subsets, 1 is always less than everything, and if 1 isn't in the set, we go to 2 or 3, and the same logic applies. This is a well-ordered set; we take this as a defining property of natural numbers.\footnote{Rigoursly proving this fact $\nat$, using the formal definition of $\nat$ is very difficult and confusing.}
+Then, looking further, we realize by taking any subset of the natural numbers, finite or infinite, as long as this set isn't empty, there must be a least element since no matter what is in any of these subsets, 1 is always less than everything, and if 1 isn't in the set, we go to 2 or 3, and the same logic applies. This is a well-ordered set; we take this as a defining property of natural numbers.\footnote{Rigorously proving this fact $\nat$, using the formal definition of $\nat$ is very difficult and confusing.}
 We can formalize our observation here and propose a definition for a well-ordered set:
 \begin{define}
 	Let $S$ be a set where for every $a,b\in S$, exactly one of
@@ -453,7 +453,7 @@ We can make another example of this idea: suppose we define a statement $Q(n)$ a
 	$$N:=\{n\in \nat: P(n)\in T\}$$
 	Then, we have $N\subseteq \nat$ implying $N$ has a least element. Let $n_l$ be the least element of $N$.
 	Then, since $P(n_l)\in T$ by definition, we claim this is the least element of $T$.
-	To show this is indeed the least element, consider any $P(m)\in T$. By definition of $N$, we have $m\in N$. Therefore $n_l\le m$, implying $P(n_l)\le P(m)$ thereby completing the proof.
+	To show this is indeed the least element, consider any $P(m)\in T$. By definition of $N$, we have $m\in N$. Therefore, $n_l\le m$, implying $P(n_l)\le P(m)$ thereby completing the proof.
 \end{proof}
 
 \begin{theorem}[Induction]
@@ -470,14 +470,14 @@ We can make another example of this idea: suppose we define a statement $Q(n)$ a
 	$$S=\{P(n):n\in\nat\}.$$
 	Then let
 	$$F:=\{P(n)\in S: P(n)\equiv \text{false}\}.$$
-	Then we have $F\subseteq S$.
-	Then by our assumption, $P(k)\in F$ hence $F\neq \varnothing$.
+	It follows that $F\subseteq S$.
+	By our assumption, $P(k)\in F$ hence $F\neq \varnothing$.
 	Since $S$ is well-ordered by lemma \eqref{lem:well-order}, $F$ must have a least element $P(n_l)$.
 	$n_l\neq 1$, since by assumption $P(1)$ is true.
 	Therefore, $P(n_l-1)\in S$.
 	But $P(n_l-1)\notin F$, since $P(n_l-1)<P(n_l)$, implies $P(n_l-1)$ is true.
-	This means $P(n_l)$ must also be true by the inductive step assumption.
-	This is a contradiction of our original assumption, hence $F\equiv \varnothing$.
+	However, this means $P(n_l)$ must also be true by the inductive step assumption, thus a contradiction of our original assumption.
+	Therefore, $F\equiv \varnothing$.
 	This concludes our proof of induction.
 \end{proof}
 

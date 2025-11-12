@@ -335,7 +335,7 @@ We will note that $f^{-1}(Y)=X$. I will leave this as an exercise for you to che
 	hence
 	$$x^2+x-2=(x+2)(x-1)=0$$
 	where we find when $x=1,-2$, the denominator is zero.
-	Thus we define
+	Thus, we define
 	$$X=\{x\in\real:x\neq1,-2\}.\footnotemark$$
 	\footnotetext{
 	Notice since $f(x)=\frac{x-1}{(x+2)(x-1)}$, so we might be inclined to say $f(x)=\frac{1}{x+2}$ and conclude $X=\{x\in\real:x\neq-2\}$. But this is indeed incorrect since when we divided out the $x-1$, we inadvertently divided by zero since we never excluded $x=1$ from our domain.}
@@ -375,7 +375,7 @@ Now, this may seem like a rather arbitrary definition, but rather than worry abo
 	$$(f-g)(x)=f(x)+h(x)g(x)$$
 	Since $h\cdot g$ is even, we conclude that $f-g$ is also even, hence proving (3).
 
-	Then since
+	Since
 	$$\paren{\frac{f}{g}}(x)=\frac{f(-x)}{g(-x)}=\frac{f(x)}{g(x)},$$
 	we can conclude $\frac{f}{g}$ is even.
 \end{proof}
@@ -468,7 +468,7 @@ A one-to-one function, simply put, is a function where there can be a maximum of
 		\draw[thick,->] (a.east) -- (e.west);
 		\draw[thick,->] (b.east) -- (d.west);
 	\end{tikzpicture}}
-	\caption{one-to-one function}
+	\caption{One-to-one function}
 	\label{fig:inject}
 \end{figure}
 As in figure \eqref{fig:inject}, each output has a maximum of one connection.
@@ -544,7 +544,7 @@ Then, when you put these together, the resulting function passes the horizontal 
 
 With this newfound vocabulary, we are one step closer to talking about inverses, but before we do, we must talk about functional composition.
 When we compose functions, what we do is take the output from one function and put it into another function.
-Because of some of the properties of this operation, the symbol we use for this looks very similar to multiplication.\footnote{If you ever take linear algebra, functional composition distributes on addition very similarly to how multiplication does. It also has an interesting connection to matrix multiplication, which is where I assume we get the symbol from (I'm not completely sure).}
+Because of some properties of this operation, the symbol we use for this looks very similar to multiplication.\footnote{If you ever take linear algebra, functional composition distributes on addition very similarly to how multiplication does. It also has an interesting connection to matrix multiplication, which is where I assume we get the symbol from (I'm not completely sure).}
 
 \begin{figure}[h]
 \centering
@@ -593,7 +593,7 @@ An important property that's useful later is that functional composition is asso
 	Define $f:X\to Y$. If there exists $g: Y\to X$ such that $g\circ f=I_X$, then $g$ is said to be the left inverse (retraction) of $f$.
 \end{define}
 
-$I_X$ in definition \eqref{def:left} is simpily the identity function on domain $X$, where $I_X(x)=x$. Like how the symbol 1 works with multiplication, any composition with the identity function results in the same function (e.g., $f\circ I=I\circ f=f$).
+$I_X$ in definition \eqref{def:left} is simply the identity function on domain $X$, where $I_X(x)=x$. Like how the symbol 1 works with multiplication, any composition with the identity function results in the same function (e.g., $f\circ I=I\circ f=f$).
 \begin{define}
 	Define $f:X\to Y$. If there exists $g: Y\to X$ such that $f\circ g=I_Y$, then $g$ is said to be the right inverse (section) of $f$.
 \end{define}
@@ -710,7 +710,7 @@ Suppose $f: X\to Y$ has an inverse, then $f$ is a bijection.\footnotemark
 \end{proof}
 
 Now, from theorem \eqref{thm:bi}, the function being a bijection is a necessary condition for the existence of an inverse.
-This means, that inverses only exist for functions if they are bijections, which might seem to contradict what you know about function inverses.\footnote{think of $\sin^{-1}(x)$ or $\cos^{-1}(x)$}
+This means, that inverses only exist for functions if they are bijections, which might seem to contradict what you know about function inverses.\footnote{Think of $\sin^{-1}(x)$ or $\cos^{-1}(x)$}
 While this might be true by the strict definition of an inverse, there are ways to build meaningful inverses by changing the function definition just a bit.
 If this doesn't make sense to you, I will show in just a moment how this all makes sense.
 
@@ -815,7 +815,7 @@ Now, with theorem \eqref{thm:to-bi}, we now know we can transform any function i
 	In this next example, let's try to determine the domain and codomain of $\sin^{-1}(x)$. By imagining the plot of $f(x)=\sin(x)$, we conclude that $f$ is not one-to-one nor onto. We first solve the "onto" problem by setting our new function's codomain to $f(X)$, which in this case is $[-1,1]$.
 	Like in the proof of theorem \eqref{lem:re-one}, there is a choice involved here, so unlike in the previous example, answers can vary depending on what we'd like to achieve.
 	For our purposes, we will cut the number line, leaving the interval $(-\frac{\pi}{2},\frac{\pi}{2}]$.
-	We can check this is the case by plotting $f$ on this domain, and $f$ clearly passes the horizontal line test. Hence we define $g: (-\frac{\pi}{2},\frac{\pi}{2}] \to [-1,1]$, where
+	We can check this is the case by plotting $f$ on this domain, and $f$ clearly passes the horizontal line test. Hence, we define $g: (-\frac{\pi}{2},\frac{\pi}{2}] \to [-1,1]$, where
 	$$g(x)=\sin(x)$$
 	and
 	$$g^{-1}(x)=\sin^{-1}(x)$$
@@ -826,9 +826,9 @@ Now, with theorem \eqref{thm:to-bi}, we now know we can transform any function i
 	In this example, we'd like to find a meaningful inverse for
 	$$f(x)=\frac{x}{1+x}$$
 	on the largest possible domain $X$ such that $f$ is well-defined and a bijection. We conclude our largest possible domain for this function is $X=\{x\in\real: x\neq -1\}$.
-	We do not yet have the tools to compute the image of $f$ under this domain directly so we will let $R$ represent this set hence
+	We do not yet have the tools to compute the image of $f$ under this domain directly, so we will let $R$ represent this set hence
 	$$f:\real \setminus \{-1\} \to R.$$
-	Then, let us solve for the graph of $f^{-1}$ algebriclly. Let $y=f(x)$ for any $x$. Then
+	Then, let us solve for the graph of $f^{-1}$ algebraically. Let $y=f(x)$ for any $x$. Then
 	$$y=\frac{x}{1+x}$$
 	which by eliminating the dominator, we get
 	$$y+xy=x$$
@@ -841,8 +841,8 @@ Now, with theorem \eqref{thm:to-bi}, we now know we can transform any function i
 	Being the inverse of $f$, we have $f^{-1}:R \to \real\setminus\{-1\}$.
 	Since the maximum possible domain of $f^{-1}$ is $\real\setminus \{1\}$, we also conjecture
 	$$R=\real\setminus \{1\}.$$
-	First, we can check that $f$ is well defined with respect to our definition of $R$ by checking $f(x)\neq 1$ for any $x$ in our domain.
-	To do this by way of contradiction. Thus if
+	First, we can check that $f$ is well-defined with respect to our definition of $R$ by checking $f(x)\neq 1$ for any $x$ in our domain.
+	To do this by way of contradiction. Thus, if
 	$$f(x)=\frac{x}{1+x}=1,$$
 	then
 	$$x=1+x$$
@@ -865,7 +865,7 @@ Now, with theorem \eqref{thm:to-bi}, we now know we can transform any function i
 	Therefore, the range of $f$ is exactly $R$ implying the range of $f$ is exactly $\real\setminus\{1\}$.
 \end{ex}
 
-\section{Exercies}
+\section{Exercises}
 \noindent
 1. Prove theorem \eqref{thm:oo}.
 

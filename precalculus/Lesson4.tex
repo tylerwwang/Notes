@@ -200,7 +200,7 @@ Now, with this basic intuition, let's define these ideas more rigorously with ma
 Let $f:\real\to\real$\footnotemark be an increasing function. Then $a<b$ implies $f(a)\le f(b)$.
 \label{def:inc}
 \end{define}
-\footnotetext{Technically, this is defined for any ordered set with a notion of "biggness", but for this introductory course, we will restrict ourselves just to $\real$, or subsets of $\real$.}
+\footnotetext{Technically, this is defined for any ordered set with a notion of "bigness", but for this introductory course, we will restrict ourselves just to $\real$, or subsets of $\real$.}
 \begin{define}
 Let $f:\real\to\real$ be a decreasing function. Then $a<b$ implies $f(a)\ge f(b)$.
 \end{define}
@@ -486,7 +486,7 @@ If $c$ is a limit point of $\mathcal D$, we say $L$ is the limit of $f$ at $c$ i
 \end{define}
 
 \begin{remark}
-The addition of the requirement that limits only be computed at limit points might seem a bit arbitrary at this moment; however, this is to simply ensure that implication $0< |x-c| <\delta$ implies $|f(x)-L|<\epsilon$ is never vacuous (i.e no points exists within $\delta$ of $c$ for small enough $\delta$).
+The addition of the requirement that limits only be computed at limit points might seem a bit arbitrary at this moment; however, this is to simply ensure that implication $0< |x-c| <\delta$ implies $|f(x)-L|<\epsilon$ is never vacuous (i.e. no points exists within $\delta$ of $c$ for small enough $\delta$).
 If the implication were vacuous, it would defeat the purpose of the limit since the limit was intended to study the behavior of functions \textit{around} a particular point.
 Additionally, this gives us a canonical way for determining where a limit can be computed, since obviously, the limit of a function at a point completely separate from the domain would not make any sense.
 
@@ -495,7 +495,7 @@ If we consider the set $(-3, 5) \cup [6, -7)$, then the points where definition 
 Intuitively, a limit point is a point that is arbitrarily close to other points in a particular set.
 Note, however, that in the set $(-5, 3) \cup \{5\}$, the element $5$ is not a limit point, since no other point in the set is arbitrarily close to it.
 An incredibly useful, though relatively difficult fact to prove is that every point in $\real$ is a limit point of $\rat$.
-	
+
 If none of this stuff on limit points makes any sense to you, in this class, we won't deal with any pathological sets where careful consideration of limit points matters; however, I decided to introduce this concept to ensure the concepts we are developing are mathematically well-founded.
 \end{remark}
 
@@ -510,7 +510,7 @@ Note that this definition generalizes the previous notion for any domain.
 In particular, when we encounter functions defined on domains that aren't intervals, sometimes the intuitive connection between continuous curves and continuous functions breaks down.
 \end{remark}
 
-If $L$ is the limit of $f$ at a point $c$, we somtimes denote this by the notation
+If $L$ is the limit of $f$ at a point $c$, we sometimes denote this by the notation
 $$\lim_{x \to c} f(x) = L.$$
 
 To break this definition down, let's examine what it means for a limit to exist.
@@ -544,11 +544,11 @@ I leave as an exercise to the reader to check that every other value of $L$ fail
 	If not, the chose some $\epsilon'>0$ such that $(-\epsilon+x,x) \cup (x, x + \epsilon)$ sets inside either $(-\epsilon+c,c)$ or $(c, c + \epsilon)$.\footnote{You will check this in an exercise.}
 	$x$ is not in $\mathcal S$ and this is a limit point of $\mathcal S$.
 	It follows $(-\epsilon+x,x) \cup (x, x + \epsilon)$ intersects $\mathcal S$ nontrivially, thus proving $c$ is a limit point of $\mathcal S$.
-	
+
 	Then for every $\epsilon>0$, there exists $\delta>0$ such that for $0<|x-c|<\delta$ implies
 	$$|f(x)-L|< \epsilon,$$
 	where $L$ denotes the limit of $f$ at $c$.
-	Therefore
+	Therefore,
 	$$|f\mid_{\mathcal S}(x)-L|< \epsilon,$$
 	which completes the proof.
 \end{proof}
@@ -583,7 +583,7 @@ I leave as an exercise to the reader to check that every other value of $L$ fail
 	This part, because it's not part of the proof, doesn't have to be precise.
 	Generally, a good place to start is by examining the equation
 	$$\epsilon=\abs{\frac{x^2-9}{x-3}-6}.$$
-	The solutions of this equation represent points where the function is just outside of the desired bound.
+	The solutions of this equation represent points where the function is just outside the desired bound.
 	Since when talking about the limit around $3$, we can exclude $x\neq3$, thus, let's divide out $x-3$ from of our expression giving
 	$$\epsilon=\abs{x+3-6}=|x-3|.$$
 	Since for a limit to exist, we should expect the curve in the plot of our function to be at least somewhat continuous around our limit point.
@@ -656,7 +656,7 @@ However, for now, look at a few generalized properties of limits.
 		We can do this since all this amounts to is taking the restriction of each function by both $\delta$s.
 		Since the restriction of a bounded function is bounded by the same bound, we see this is an effective strategy at bounding both functions by $\epsilon$.
 	}
-	By the limit defintion, we have
+	By the limit definition, we have
 	$$|f(x)-L| < \epsilon \jand |f(x)-L'| < \epsilon.$$
 	Adding the inequalities results in
 	$$|f(x)-L| + |f(x)-L'| < 2\epsilon.$$
@@ -766,7 +766,7 @@ $$\frac{1}{\lim_{x\to c}f(x)}=\lim_{x\to c}\sbrak{\frac{1}{f(x)}}$$
 	Since $L$ is the limit of $g$ at $c$, there exists some $\delta'>0$ such that $0<|x-c|<\delta'$ implies
 	$$|g(x)-L|<\delta$$
 	since $\delta>0$.
-	Since $g(x)\in \mathcal D$ is within $\delta$ of $L$, we conclude by ineuqality \eqref{eq:comp-func-lim-ineq1} that
+	Since $g(x)\in \mathcal D$ is within $\delta$ of $L$, we conclude by inequality \eqref{eq:comp-func-lim-ineq1} that
 	$$|f(g(x))-f(L)|<\epsilon$$
 	which proves the theorem.
 \end{proof}
@@ -785,18 +785,18 @@ We begin this process with the following lemma.
 	It is clear that every interval satisfies this condition
 	The converse, however, is a bit tricky to prove and thus omitted.\footnote{The converse requires us to formally define the real numbers.
 		Namely, it requires the observation that every bounded set in $\real$ has a least upper bound, which is known as the \textit{Axiom of Completeness}}
-		
+
 	Suppose $f(\mathcal I)$ is not an interval.
 	Then there exists $f(x_0), f(x_1) \in \mathcal f(\mathcal I)$ where $f(x_0) < f(x_1)$ such that $[f(x_0), f(x_1)] \not \subseteq f(\mathcal I)$.
 	Hence, there exists $y \in [f(x_0), f(x_1)]$ such that $y \notin f(\mathcal I)$.
 	Take $\epsilon_0:=y-f(x_0)$ and $\epsilon_1:=f(x_1) - y$.
 	Notice $\epsilon_0,\epsilon_1 >0$ by definition.
-	By continunity, there exists $\delta_0,\delta_1>0$ such that
+	By continuity, there exists $\delta_0,\delta_1>0$ such that
 	\begin{align*}
 		f((-\delta_0 + x_0, x_0 + \delta_0)) &\subseteq (-\epsilon_0 + x_0, x_0+ \epsilon_0) \\
 		f((-\delta_1 + x_1, x_1 + \delta_1)) &\subseteq (-\epsilon_1 + x_1, x_1 + \epsilon_1)
 	\end{align*}
-	By definition, 
+	By definition,
 	$$(-\epsilon_0 + x_0, x_0+ \epsilon_0) \cap (-\epsilon_1 + x_1, x_1 + \epsilon_1) = \varnothing.$$
 	Since functions are well-defined, this requires
 	$$(-\delta_0 + x_0, x_0 + \delta_0) \cap (-\delta_1 + x_1, x_1 + \delta_1) = \varnothing.$$
@@ -815,7 +815,7 @@ We begin this process with the following lemma.
 	Suppose without loss of generality $x_0<x_1$.
 	The image of $f([x_0,x_1])$ is an interval by lemma \eqref{lem:connect-func}
 	The interval $[f(x_0), f(x_1)]$ (or $[f(x_1), f(x_0)]$, depending on which is larger) is in $f([x_0,x_1])$.
-	Thus any $y$ between $f(x_0)$ and $f(x_1)$ is in the image of $f$.
+	Thus, any $y$ between $f(x_0)$ and $f(x_1)$ is in the image of $f$.
 \end{proof}
 \end{document}
 

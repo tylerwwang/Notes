@@ -1,12 +1,18 @@
 FROM sotetsuk/pdflatex
 
-ADD *.tex /
-ADD assets /assets
+RUN apt-get update && apt-get install python3 -y
 
-ADD build.sh /
+WORKDIR /src
 
 VOLUME /out
 
-WORKDIR /
+ADD build.sh /src
+ADD data.py /src
+
+ADD assets /src/assets
+ADD *.tex /src
+
+ENV CLASS "Precalculus"
+ENV FUllCLASS "Essence of Precalculus"
 
 CMD ./build.sh

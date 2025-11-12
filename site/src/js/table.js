@@ -16,7 +16,7 @@ function loadData(data, base) {
 
 		let titleCell = newRow.insertCell();
 		let lessonCell = newRow.insertCell();
-		let solCell = newRow.insertCell();
+		//let solCell = newRow.insertCell();
 
 		let title = document.createTextNode("Lesson " + keys[i])
 		titleCell.appendChild(title);
@@ -31,6 +31,7 @@ function loadData(data, base) {
 			lessonCell.appendChild(link);
 		}
 
+		/*
 		if (data[keys[i]].LessonSol != "") {
 			let link = document.createElement("a");
 			link.setAttribute("href", base.concat(data[keys[i]].LessonSol).concat(".pdf"));
@@ -40,5 +41,6 @@ function loadData(data, base) {
 
 			solCell.appendChild(link);
 		}
+		*/
 	}
 }

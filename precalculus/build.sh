@@ -1,8 +1,25 @@
+mkdir -p /out/"$CLASS"
+mkdir -p /out/data
+
+rm data.json
+touch data.json
+
+echo "[" >> data.json
+
 for i in *.tex;
-do pdflatex $i;
-	pdflatex $i;
+do
+	name=${i%.*}
+	number=`echo ${name} | grep -o "[1-9]*" | head -1`
+	type=`echo ${name} | grep -o "[A-Za-z]*" | head -1`
+
+	echo "{\"number\":\"${number}\",\"type\":\"${type}\",\"file\":\"${name}\"}," >> data.json
+
+	latexmk -pdf $i
 done
 
-mkdir out/Precalculus
+mv *.pdf /out/"$CLASS"
 
-mv *.pdf out/Precalculus
+truncate -s-2 data.json
+echo "]" >> data.json
+
+python3 data.py

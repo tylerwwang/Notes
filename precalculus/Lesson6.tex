@@ -414,7 +414,8 @@ Now, with this, we can use the properties that we defined for exponentials to pe
 	where the last equality follows from the fact that we want $\phi$ to be an extension of $e^x$ to the complex numbers.
 	Since $e^{z-z_0}$ is real, we see if $z-z_0$ is real, the result on $\phi$ is a shift towards or away from the origin, which is represented by the blue arrow in figure \eqref{fig:cpx-exp}.
 	However, if $z-z_0$ were completely imaginary, since the imaginary axis is perpendicular to the real axis, the effect on $\phi$ must be a shift perpendicular to the radial direction as shown by the magenta arrow in figure \eqref{fig:cpx-exp}.
-	This shows that the exponential of imaginary numbers must result in \textit{rotations} around the origin.
+	The only way for this to be true is if the exponential of imaginary numbers generate \textit{rotations} around the origin of the complex plane, which the definition $\phi(iy)=\text{cis}(y)$ encodes.
+	This shows that the exponential of imaginary numbers must result in \textit{rotations} around the origin.\footnote{Special thanks to ziggurism for the inspiration for this explanation. The original post can be accessed at \href{https://math.stackexchange.com/a/2503016}{https://math.stackexchange.com/a/2503016}.}
 
 	\begin{figure*}
 	\centering
@@ -454,9 +455,9 @@ Now, with this, we can use the properties that we defined for exponentials to pe
 	\end{figure*}
 
 	However, this doesn't quite answer why we can't have $\phi(iy)=\text{cis}(ky)$.
-	The answer to this lies in the rates of change.
+	The answer to this lies in how the values of $k$ affects the \text{rate of change} of $\phi$.
 	As we vary $k$, the rate of change of the imaginary part changes since $k$ corresponds to the rate at which we trace around the circle.
-	To ensure $\phi$ is locally linear, we require that the rate of change in all directions respect some \textit{uniformity}.
+	To ensure $\phi$ is locally linear, we require that the rate of change of $\text{cis}(ky)$ agree with the rate of change of $e^x$.
 	In particular, this uniformity requires $k=1$.
 	A more precise proof of this fact requires an understanding of complex analysis; thus, we will conclude our discussion here.
 \end{remark}
